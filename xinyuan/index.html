@@ -170,6 +170,10 @@ iframe.pane{border:0;width:100%;height:100%;overflow:hidden}
 textarea{width:100%;height:96px;border:1.5px solid var(--line);border-radius:14px;padding:12px;font-size:14px;font-family:ui-monospace,monospace;margin-top:10px;-webkit-user-select:text;user-select:text}
 .msg{font-size:15px;color:var(--chalk);margin-left:10px}
 
+.ask{position:fixed;inset:0;background:rgba(20,24,40,.38);z-index:60;display:flex;align-items:center;justify-content:center}
+.askb{background:var(--card);border-radius:22px;padding:28px 30px 24px;max-width:520px;box-shadow:0 18px 50px rgba(0,0,0,.2)}
+.askb h2{margin:0 0 10px;font-size:23px}.askb p{font-size:17px;line-height:1.7;color:#333a4a;margin:0 0 20px}
+.askr{display:flex;justify-content:flex-end;gap:12px}
 #toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:12px 22px;border-radius:14px;font-size:16px;opacity:0;pointer-events:none;transition:all .25s;z-index:50}
 #toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
 #loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:19px;color:var(--mut)}
@@ -481,7 +485,7 @@ function renderTodayInner(){
       <button class="slot s-sun ${l.md?"done":""} ${nowId==="t-m"?"now":""}" id="t-m">
         <div class="when">早餐时，听力营第 ${l.M.day} 天</div><div class="what">磨耳朵 40 分钟</div>
         <div class="body"><div class="ttl">${esc(l.M.title)}</div><div class="cn">${esc(l.M.cn)}</div><div class="steps">点一下就自动播放：单词、动画故事、句型，不用操作</div></div>
-        <div class="foot"><span>${l.md?"":l.m?`已听 ${mins(l.m)} / 40 分钟`:"还没开始"}</span><span class="go">${l.md?"再听一遍":l.m?"接着听":"开始听"}</span></div>
+        <div class="foot"><span>${l.md?"":l.m?`已听 ${mins(l.m)} / 40 分钟`:"还没开始"}</span>${l.md?(l.M.man?`<span class="ahead" id="m-undo">撤销手动完成</span>`:""):`<span class="ahead" id="m-man">一起听过了？手动完成</span>`}<span class="go">${l.md?"再听一遍":l.m?"接着听":"开始听"}</span></div>
         ${l.md?"":`<div class="bar"><i style="width:${Math.min(100,l.m/24)}%"></i></div>`}
         ${stamp("lm"+l.M.day,l.md)}
       </button>
@@ -509,7 +513,10 @@ function renderTodayInner(){
       ${x.active?`<button class="trow dxr" id="r-dx"><span>抄写默写</span><span class="cells">${cells(Object.fromEntries(Object.entries(DS.rec).map(([k,v])=>[k,v&&v.done?1:0])),x.day,v=>v?"d":"")}</span><span class="n">${x.total} / 90</span></button>`:""}
       <div class="legend">每 30 天一段，黑框是今天。听力营格子上半是早晨、下半是晚上。点一行可以打开那门课的日历。</div>
     </div></div>`;
-  $("#t-m").onclick=()=>{ setTab("lb"); API.lb.start("m", l.M.day); syncSub(); };
+  $("#t-m").onclick=ev=>{
+    if (ev.target.closest("#m-man")) return askMark(l.M.day);
+    if (ev.target.closest("#m-undo")){ API.lb.mark("m", l.M.day, false); toast("已撤销，今天的磨耳朵还没完成"); return renderToday(); }
+    setTab("lb"); API.lb.start("m", l.M.day); syncSub(); };
   $("#t-e").onclick=()=>{ setTab("lb"); API.lb.start("e", l.E.day); syncSub(); };
   $("#x-role").onclick=()=>{ setTab("lb"); API.lb.role(); syncSub(); };
   if ($("#t-x")) $("#t-x").onclick=()=>{ setTab("dx"); if (x.done){ DXV_DAY=x.day; dxView("day"); } else dxStart(); syncSub(); };
@@ -521,12 +528,23 @@ function renderTodayInner(){
 // 自然拼读模块已经去掉；以前的拼读记录原样留在这台 iPad 上（phonics_v1），备份码里也带着，不会丢
 function phGet(){ try{ return JSON.parse(localStorage.getItem("phonics_v1")||"null"); }catch(e){ return null; } }
 function phSet(o){ try{ localStorage.setItem("phonics_v1", JSON.stringify(o)); }catch(e){} }
+// 手动完成磨耳朵：先确认一次，免得误点
+function askMark(day){
+  const who=(document.querySelector(".who")||{}).textContent||"";
+  document.body.insertAdjacentHTML("beforeend", `<div class="ask" id="ask"><div class="askb">
+    <h2>${who?esc(who)+"的":""}早餐磨耳朵 Day ${day}</h2>
+    <p>今天是和另一个孩子在同一台 iPad 上一起听的？确认后这里记为完成，晚上的跟读照常做。</p>
+    <div class="askr"><button class="btn ghost" id="ask-no">取消</button><button class="btn" id="ask-yes">一起听过了，记为完成</button></div></div></div>`);
+  $("#ask-no").onclick=()=>$("#ask").remove();
+  $("#ask").onclick=ev=>{ if(ev.target.id==="ask") $("#ask").remove(); };
+  $("#ask-yes").onclick=()=>{ $("#ask").remove(); API.lb.mark("m", day); toast("早餐磨耳朵已记为完成"); renderToday(); };
+}
 function renderHelp(){
   $("#help").innerHTML=`<div class="wrap">
     <h1>说明与备份</h1>
     <p>听力营和抄写默写各自记进度：听力营早晚都打卡后才进入下一天，抄写默写每天一组。两个孩子用同一份内容，进度分开保存。</p>
     <table>
-      <tr><td>早餐时</td><td>听力营“磨耳朵”。点一下开始，自动循环播放单词、带字幕的动画故事和句型，满 40 分钟自动打卡。中途暂停不计时。</td></tr>
+      <tr><td>早餐时</td><td>听力营“磨耳朵”。点一下开始，自动循环播放单词、带字幕的动画故事和句型，满 40 分钟自动打卡。中途暂停不计时。两个孩子在同一台 iPad 上一起听时，另一个孩子在自己的页面点卡片上的“一起听过了？手动完成”记上；点错了可以在同一处撤销。</td></tr>
       <tr><td>睡前</td><td>听力营训练 15–20 分钟：跟读、角色扮演、<b>句型练习</b>（看懂 → 换着说 → 变一变 → 自己说）和小测。小测里会考本集句型，学过的句型在第 2、5、10 天再考一次；所有句型收在「听力营 → 句型本」里。</td></tr>
       <tr><td>抄写默写</td><td>学校抄写背默结束后开始，90 天，配打印纸。先默写昨天的（iPad 念题、对答案、错的进错词本），再抄写今天的。</td></tr>
     </table>

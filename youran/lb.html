@@ -1352,7 +1352,12 @@ window.__api = {
     let next=1; while(next<TOTAL && ST.rec[next] && ST.rec[next][K]) next++;
     return today || next; },
   slot(kind){ const d=this.pick(kind), I=dayInfo(d), r=rec(d), e=I.ep, K=kind==="m"?"md":"ed";
-    return {day:d, ep:e.ep, title:e.title, cn:e.cn, done:!!r[K], t:r[kind]||0, steps:plan(d,kind).map(s=>STEP_NAMES[s])}; },
+    return {day:d, ep:e.ep, title:e.title, cn:e.cn, done:!!r[K], man:!!r[K+"man"], t:r[kind]||0, steps:plan(d,kind).map(s=>STEP_NAMES[s])}; },
+  // 手动完成：两个孩子在同一台 iPad 上一起磨耳朵时，另一个孩子在自己的页面里点一下记上
+  mark(kind, day, on){ const d=day||this.pick(kind), r=rec(d), K=kind==="m"?"md":"ed", DT=kind==="m"?"mdate":"edate";
+    if (on===false){ if (r[K+"man"]){ r[K]=false; delete r[DT]; delete r[K+"man"]; if (ST.cur===d+1) ST.cur=d; } }
+    else { r[K]=true; r[DT]=ymdL(); r[K+"man"]=true; if (r.md && r.ed && ST.cur===d && ST.cur<TOTAL) ST.cur=d+1; }
+    save(ST); try{ hstat(); }catch(e){} return d; },
   info(){ const M=this.slot("m"), E=this.slot("e"); const d=M.day, I=dayInfo(d), r=rec(d), e=I.ep; return {day:d, M, E, ep:e.ep, title:e.title, cn:e.cn, topic:e.topic,
     part:I.part, lv:I.lv, lvName:I.lvName, m:M.t, e:E.t, md:M.done, ed:E.done, eday:E.day, streak:streak(), done:doneCount(),
     eveSteps:E.steps,
