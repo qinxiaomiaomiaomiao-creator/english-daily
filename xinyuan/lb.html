@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><script>(function(){try{var P='xinyuan/';var S=window.Storage&&Storage.prototype;if(!S||S.__ns)return;var g=S.getItem,s=S.setItem,r=S.removeItem,c=S.clear,k=S.key;function L(t){try{return t===window.localStorage}catch(e){return false}}S.getItem=function(x){return g.call(this,L(this)?P+x:x)};S.setItem=function(x,v){return s.call(this,L(this)?P+x:x,v)};S.removeItem=function(x){return r.call(this,L(this)?P+x:x)};S.clear=function(){if(!L(this))return c.call(this);for(var i=this.length-1;i>=0;i--){var n=k.call(this,i);if(n&&n.indexOf(P)===0)r.call(this,n)}};S.__ns=1;}catch(e){}})();</script><script>(function(){function w(m){try{var L=JSON.parse(localStorage.getItem("lb_diag")||"[]");L.push(new Date().toLocaleString()+" 听力营 "+String(m).slice(0,300));localStorage.setItem("lb_diag",JSON.stringify(L.slice(-8)));}catch(x){}}window.addEventListener("error",function(e){w("err: "+e.message+" :"+e.lineno)});window.addEventListener("unhandledrejection",function(e){w("rej: "+(e.reason&&e.reason.message||e.reason))});})();</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Lily & Ben 英语听力营 · 90 天打卡</title>
+<style>
+@font-face{font-family:'Andika';src:url(../assets/andika.e4fe2ae5f9.woff2) format('woff2');font-display:swap}
+:root{--ac:#e07a2f;--ac2:#2a9d8f;--soft:#fff3e6;--ink:#2b2d42;--mut:#7a8088;--bg:#fffaf3;--ok:#2e9b5f;--bad:#d1495b;--night:#3d4a8c}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,"PingFang SC","Noto Sans CJK SC",sans-serif;-webkit-user-select:none;user-select:none;touch-action:manipulation;overscroll-behavior:none;font-size:17px}
+button{touch-action:manipulation;font-family:inherit;cursor:pointer}
+.en{font-family:"Andika","Avenir Next",sans-serif;font-variant-ligatures:none}
+header{position:sticky;top:0;z-index:30;background:rgba(255,250,243,.96);backdrop-filter:blur(8px);border-bottom:1px solid #f0e4d4;padding:0 28px;height:68px;display:flex;align-items:center}
+.hrow{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%}
+.logo{font-size:23px;font-weight:800;color:var(--ac);display:flex;align-items:center;gap:8px}
+.logo small{font-size:15px;color:var(--mut);font-weight:500}
+nav{display:flex;gap:4px}
+nav button{border:0;background:none;padding:12px 20px;border-radius:14px;font-size:18px;color:var(--mut);min-height:48px}
+nav button.on{background:var(--soft);color:var(--ac);font-weight:700}
+main{padding:18px 28px 28px}
+.card{background:#fff;border-radius:22px;padding:18px 20px;box-shadow:0 1px 0 #f1e6d6,0 10px 30px rgba(120,80,30,.06);margin-bottom:16px}
+.tip{font-size:14px;color:var(--mut);line-height:1.7}
+.btn{border:0;border-radius:18px;padding:15px 28px;font-size:19px;min-height:58px;background:var(--ac);color:#fff;font-weight:700;box-shadow:0 3px 0 #b85f1f}
+.btn:active{transform:translateY(2px);box-shadow:0 1px 0 #b85f1f}
+.btn.ghost{background:var(--soft);color:var(--ac);box-shadow:none}
+.btn.teal{background:var(--ac2);box-shadow:0 3px 0 #1f7469}
+.btn.night{background:var(--night);box-shadow:0 3px 0 #29336a}
+.btn:disabled{opacity:.45}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.chip{display:inline-block;background:var(--soft);color:var(--ac);border-radius:999px;padding:3px 11px;font-size:13px;font-weight:600}
+.chip.l1{background:#e7f6ee;color:#2e9b5f}.chip.l2{background:#e8f1fb;color:#3a78c2}.chip.l3{background:#f3e9fb;color:#8a4fc4}
+/* home */
+.hero{display:grid;grid-template-columns:1.3fr 1fr;gap:24px;align-items:center}
+.hero .cover{border-radius:20px;overflow:hidden;aspect-ratio:16/10;background:#eee;position:relative}
+.hero h2{margin:6px 0 4px;font-size:34px}
+.sesbtn{display:flex;align-items:center;gap:16px;width:100%;border:0;border-radius:24px;padding:20px 22px;margin-top:14px;text-align:left;font-size:15px;color:#fff;min-height:110px;box-shadow:0 6px 16px rgba(0,0,0,.12)}
+.sesbtn:active{transform:scale(.98)}
+.sesbtn .ic{font-size:52px}
+.sesbtn b{display:block;font-size:24px;margin-bottom:4px}
+.sesbtn.m{background:linear-gradient(135deg,#ffb347,#ff7e3b)}
+.sesbtn.e{background:linear-gradient(135deg,#5b6dcd,#3d4a8c)}
+.sesbtn .st{margin-left:auto;font-size:15px;background:rgba(255,255,255,.25);border-radius:999px;padding:5px 12px;white-space:nowrap}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.stats div{background:#fff;border-radius:18px;padding:14px;text-align:center;box-shadow:0 1px 0 #f1e6d6}
+.stats b{display:block;font-size:28px;color:var(--ac)}
+.stats span{font-size:13px;color:var(--mut)}
+/* calendar */
+.cal{display:grid;grid-template-columns:repeat(10,1fr);gap:8px}
+.cell{border:2px solid #f0e4d4;background:#fff;border-radius:16px;padding:6px 4px;text-align:center;font-size:13px;min-height:74px}
+.cell b{display:block;font-size:16px}
+.cell.cur{border-color:var(--ac);background:var(--soft)}
+.cell .mk{font-size:15px;letter-spacing:2px}
+.cell .mk .off{opacity:.18;filter:grayscale(1)}
+.cell.full{background:#eaf7ef;border-color:#bfe5cd}
+/* session */
+.sbar{background:var(--bg);padding:0 0 12px}
+.prog{height:12px;background:#f0e4d4;border-radius:6px;overflow:hidden}
+.prog i{display:block;height:100%;background:linear-gradient(90deg,#ffb347,#ff7e3b);transition:width .5s}
+.sbar.e .prog i{background:linear-gradient(90deg,#8e9be8,#3d4a8c)}
+.steps{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.step{border:2px solid #f0e4d4;background:#fff;border-radius:999px;padding:8px 14px;font-size:16px;color:var(--mut);min-height:48px;white-space:nowrap}
+.step.on{border-color:var(--ac);color:var(--ac);font-weight:700;background:var(--soft)}
+.step.done{color:var(--ok)}
+.step.done:after{content:" ✓"}
+.stage{position:relative;width:100%;margin:0 auto;aspect-ratio:16/10;border-radius:24px;overflow:hidden;box-shadow:0 12px 30px rgba(0,0,0,.1);background:#eee}
+.stage .lyr{position:absolute;inset:0;transition:opacity .45s}
+.stage .rstage,.cover .rstage{position:absolute;inset:0;z-index:1}
+.rs .lyr, .rs .lyr *{animation-play-state:paused!important}
+.cover .lyr{position:absolute;inset:0}
+.stage .rstage > div{width:100%!important;height:100%!important}
+.lyr svg,.thumb svg{width:100%;height:100%;display:block}
+.hero>*{min-width:0}
+.stage .badge{position:absolute;top:12px;left:14px;background:rgba(255,255,255,.85);border-radius:999px;padding:4px 12px;font-size:13px;color:var(--mut);z-index:3}
+.sub{margin:12px auto 6px;min-height:118px;text-align:center}
+.sub .who{font-size:14px;color:var(--ac);font-weight:800}
+.sub .en{font-size:34px;line-height:1.3}
+.sub .cn{font-size:17px;color:var(--mut);margin-top:4px}
+.sub.blind .en{filter:blur(10px)}
+.show{max-width:1240px;margin:0 auto}
+.show .stage{width:min(100%, calc((100dvh - 410px) * 1.6))}
+.show .sub{min-height:120px;margin-top:8px}
+.show .sub .en{font-size:42px;font-weight:600}
+.show .sub .cn{font-size:20px}
+.show .now{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:16px;color:var(--mut)}
+.show .now b{color:var(--ink)}
+.wcard{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 40%,#fffdf6,#ffeccc);z-index:5;opacity:0;transition:opacity .35s}
+.wcard.on{opacity:1}
+.wcard .e{font-size:150px;line-height:1.1;animation:bob 2.2s ease-in-out infinite}
+.wcard .w{font-size:76px;font-weight:700;margin-top:8px;text-align:center;padding:0 30px;line-height:1.15}
+.wcard .c{font-size:30px;color:var(--mut);margin-top:6px}
+.wcard.pat .w{font-size:52px;font-weight:600}
+.wcard .k{position:absolute;top:18px;left:22px;font-size:18px;font-weight:800;color:var(--ac);background:#fff;border-radius:20px;padding:4px 14px}
+.wcard .pop{animation:popin .5s ease-out}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-14px) rotate(3deg)}}
+@keyframes popin{from{transform:scale(.6);opacity:0}to{transform:scale(1);opacity:1}}
+.bigplay{font-size:30px;padding:22px 46px;min-height:90px}
+.ctrl{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:6px 0}
+.lines{margin:0}
+.ln{display:flex;gap:10px;padding:11px 12px;border-radius:14px;align-items:baseline;min-height:48px}
+.ln.cur{background:#fff0dc}
+.ln .who{flex:none;width:92px;font-size:13px;color:var(--ac);font-weight:800}
+.ln .en{font-size:20px}
+.wgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}
+.wgrid.seven{grid-template-columns:repeat(7,1fr)}
+.wc{border:2px solid #f0e4d4;background:#fff;border-radius:18px;padding:12px;text-align:center;transition:all .2s}
+.wc{min-height:150px}
+.wc .e{font-size:56px;display:block}
+.wc .en{font-size:26px;display:block;margin-top:2px}
+.wc .cn{font-size:14px;color:var(--mut)}
+.wc.hot{border-color:var(--ac);background:#fff0dc;transform:scale(1.06)}
+.pat{padding:14px;border-radius:16px;margin-bottom:10px;border:2px solid #f0e4d4;background:#fff}
+.pat.hot{border-color:var(--ac2);background:#e9f7f5}
+.pat .en{font-size:26px}
+.qopts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+.qopt{border:3px solid #f0e4d4;background:#fff;border-radius:24px;padding:26px 12px;font-size:24px;text-align:center;min-height:210px}
+.qopt:active{transform:scale(.97)}
+.qopt .e{font-size:76px;display:block;margin-bottom:6px}
+.qopt.ok{border-color:var(--ok);background:#e9f7ef}
+.qopt.bad{border-color:var(--bad);background:#fbecee}
+.g4{grid-template-columns:repeat(4,1fr)}
+.center{text-align:center}
+.big{font-size:30px;font-weight:800;color:var(--ac)}
+.yourturn{color:var(--ac);font-weight:800;font-size:22px}
+.turn{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;min-height:64px;margin:6px 0 2px}
+.turn .st{font-size:21px;font-weight:700}
+.turn .st.ok{color:var(--ok)} .turn .st.bad{color:var(--bad)} .turn .st.mic{color:var(--ac)}
+.turn .mic i{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--bad);margin-right:8px;animation:blink 1s infinite}
+@keyframes blink{50%{opacity:.25}}
+.turn .score{font-size:30px;font-weight:800;font-variant-numeric:tabular-nums}
+.lis{display:flex;align-items:center;gap:14px}
+.meter{display:inline-block;width:140px;height:12px;border-radius:8px;background:#eee;overflow:hidden}.meter i{display:block;height:100%;width:0;background:var(--ac);transition:width .08s}
+.fb{display:flex;align-items:center;gap:14px;border-radius:18px;padding:8px 14px;flex-wrap:wrap;justify-content:center;animation:fbin .2s ease-out}
+.fb.pass{background:#EFF9F2}.fb.fail{background:#FFF4F0}
+@keyframes fbin{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.fb .stars{display:flex;gap:2px;font-size:34px;line-height:1}
+.fb .stars span{color:#E4E1DA}.fb .stars span.on{color:#F2A93B;animation:starpop .35s ease-out both}
+@keyframes starpop{0%{transform:scale(.3);opacity:0}70%{transform:scale(1.25)}100%{transform:scale(1);opacity:1}}
+.fb .say{font-size:21px;font-weight:800}.fb.pass .say{color:#1E7A45}.fb.fail .say{color:#C0533F}
+.fb .lab{font-size:12px;color:var(--mut)}
+.fbb{display:flex;gap:10px;flex-wrap:wrap}
+.gcard .gsteps{display:flex;gap:6px}.gsteps span{font-size:14px;padding:4px 10px;border-radius:10px;background:#F1EFEA;color:var(--mut)}
+.gsteps span.on{background:var(--ac);color:#fff}.gsteps span.ok{background:#DDF3E5;color:#1E7A45}
+.gpat{margin:14px 0 6px;padding:16px 18px;border-radius:18px;background:#FFF8EC;border:1.5px dashed #F0C987}
+.gskel{font-size:32px;line-height:1.5}.gskel.sm{font-size:22px;cursor:pointer}
+.slot{display:inline-block;background:#FFE3A3;color:#7A4B00;border-radius:10px;padding:0 8px;margin:0 2px}
+.slot.blank{background:#fff;border:2px dashed #E0A100;min-width:70px;text-align:center;color:#E0A100}
+.gex{display:flex;align-items:center;gap:10px;margin-top:8px;flex-wrap:wrap}.gex .en{font-size:20px}
+.btn.sm{font-size:15px;padding:6px 12px}
+.gtip{margin-top:8px;font-size:16px;color:#6B5A3A}
+.gw{padding:10px 0 4px}
+.gpic{display:inline-flex;align-items:center;gap:12px;font-size:24px;font-weight:700;background:#fff;border:1.5px solid var(--line);border-radius:18px;padding:8px 18px;margin:10px 0}
+.gpic .e{font-size:44px}
+.gsay{font-size:30px;margin:10px 0 4px;min-height:46px}
+.gsrc{font-size:28px;margin:12px 0}
+.gopts{display:flex;flex-direction:column;gap:10px;max-width:640px;margin:12px auto 0}
+.gopt{border:2px solid var(--line);background:#fff;border-radius:16px;padding:14px 18px;font-size:24px;text-align:left}
+.gopt.ok{border-color:var(--ok);background:#EFF9F2}.gopt.bad{border-color:var(--bad);background:#FFF4F0}
+.gfb{min-height:40px;margin-top:12px;font-size:19px}
+.chip.gq{background:#FFE3A3;color:#7A4B00}
+.gbook{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.gb{background:#fff;border:1.5px solid var(--line);border-radius:18px;padding:12px 14px;display:flex;flex-direction:column;gap:6px}
+.gb.ok{border-color:#BFE1CB}.gb.weak{border-color:#F3C3B9;background:#FFF8F6}
+.gbh{display:flex;justify-content:space-between;align-items:center}.gst{font-size:14px;color:#B7791F;font-weight:700}.gb.weak .gst{color:var(--bad)}
+.gb .btn{align-self:flex-start}
+.lis{display:flex;align-items:center;gap:12px}
+.micdot{font-size:24px;animation:breathe 1.4s ease-in-out infinite}
+@keyframes breathe{50%{transform:scale(1.15)}}
+.starbox{font-size:20px;font-weight:700;color:#B7791F;align-self:center;position:relative;min-width:60px}
+.starbox em{position:absolute;left:100%;top:-6px;font-style:normal;font-size:15px;color:#E0A100;opacity:0}
+.starbox.bump b{display:inline-block;animation:bump .4s ease-out}.starbox.bump em{animation:floatup .9s ease-out}
+@keyframes bump{50%{transform:scale(1.35)}}
+@keyframes floatup{0%{opacity:0;transform:translateY(6px)}30%{opacity:1}100%{opacity:0;transform:translateY(-14px)}}
+@media (prefers-reduced-motion: reduce){.fb,.fb .stars span.on,.micdot,.starbox.bump b,.starbox.bump em{animation:none}}
+.btn.next{background:var(--ok);box-shadow:0 3px 0 #2c7a4b}
+.sub .en .w{border-radius:6px;padding:0 2px;transition:background .2s,color .2s}
+.w{border-radius:6px;padding:0 2px;transition:background .2s,color .2s}
+.w.nw{background:#FFE3A3;color:#7A4B00}
+.w.hit{background:#DDF3E5;color:#1E7A45}
+.w.miss{color:var(--bad);text-decoration:underline wavy;text-underline-offset:6px}
+.roles{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:10px 0}
+.roles button{border:2px solid #f0e4d4;background:#fff;border-radius:16px;padding:8px 14px;font-size:18px;display:flex;align-items:center;gap:8px;min-height:64px;width:100%}
+.roles button.on{border-color:var(--ac);background:var(--soft)}
+.roles svg{width:40px;height:50px}
+.lib{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.ep{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 1px 0 #f1e6d6,0 6px 18px rgba(0,0,0,.04);text-align:left;border:0;padding:0}
+.ep .thumb{aspect-ratio:16/10;background:#eee}
+.ep .meta{padding:10px 12px}
+.ep .meta b{display:block;font-size:16px}
+.overlay{position:fixed;inset:0;background:rgba(43,45,66,.55);display:flex;align-items:center;justify-content:center;z-index:50}
+.overlay .box{background:#fff;border-radius:28px;padding:30px 36px;text-align:center;max-width:460px;animation:pop .4s}
+@keyframes pop{from{transform:scale(.7);opacity:0}to{transform:scale(1);opacity:1}}
+.confetti-c{position:fixed;inset:0;pointer-events:none;z-index:49;overflow:hidden}
+.confetti-c i{position:absolute;top:-20px;width:10px;height:16px;animation:cf 2.6s linear forwards}
+@keyframes cf{to{transform:translateY(110vh) rotate(720deg)}}
+table.t{width:100%;border-collapse:collapse;font-size:15px}
+table.t td,table.t th{border-bottom:1px solid #f0e4d4;padding:9px 6px;text-align:left;vertical-align:top}
+table.t th{color:var(--ac)}
+select{font-size:16px;padding:8px 10px;border-radius:12px;border:1.5px solid #f0e4d4;background:#fff}
+.split{display:grid;grid-template-columns:minmax(0,1fr) 390px;gap:22px;align-items:start}
+.lcol .stage{width:min(100%, calc((100dvh - 430px) * 1.6))}
+.rcol{background:#fff;border-radius:24px;padding:16px;box-shadow:0 1px 0 #f1e6d6,0 10px 30px rgba(120,80,30,.06);height:calc(100dvh - 230px);overflow-y:auto;-webkit-overflow-scrolling:touch}
+.rcol h4{margin:4px 4px 10px;font-size:18px;color:var(--ac)}
+.rcol .roles{flex-direction:column;align-items:stretch}
+.stimer{display:flex;align-items:center;gap:12px;font-size:17px;color:var(--mut);white-space:nowrap}
+.stimer b{font-size:26px;color:var(--ac)}
+#rot{display:none;position:fixed;inset:0;background:var(--bg);z-index:99;align-items:center;justify-content:center;flex-direction:column;font-size:24px;text-align:center}
+@media (orientation:portrait){#rot{display:flex}}
+.stage svg{width:100%;height:100%;display:block}
+.drift{animation:drift 40s ease-in-out infinite alternate}
+@keyframes drift{from{transform:translateX(-140px)}to{transform:translateX(140px)}}
+.pulse{transform-box:fill-box;transform-origin:center;animation:pulse 3.5s ease-in-out infinite alternate}
+@keyframes pulse{from{transform:scale(.92);opacity:.85}to{transform:scale(1.08);opacity:1}}
+.twinkle{animation:tw 2.4s ease-in-out infinite alternate}
+@keyframes tw{from{opacity:.2}to{opacity:1}}
+.drop{animation:drop .8s linear infinite}
+@keyframes drop{from{transform:translate(0,-120px)}to{transform:translate(-60px,1100px)}}
+.flake{animation:flake 8s linear infinite}
+@keyframes flake{0%{transform:translate(0,-60px)}50%{transform:translate(30px,500px)}100%{transform:translate(-20px,1100px)}}
+.leaf{animation:leaf 10s linear infinite}
+@keyframes leaf{0%{transform:translate(0,0) rotate(0)}50%{transform:translate(-120px,520px) rotate(200deg)}100%{transform:translate(-60px,1100px) rotate(400deg)}}
+.sway{animation:sway 3.2s ease-in-out infinite alternate}
+@keyframes sway{from{transform:rotate(-4deg)}to{transform:rotate(4deg)}}
+.bird{animation:bird 26s linear infinite}
+@keyframes bird{from{transform:translate(-100px,220px)}to{transform:translate(1700px,120px)}}
+.wave{animation:wave 4s ease-in-out infinite alternate}
+@keyframes wave{from{transform:translateX(-30px)}to{transform:translateX(30px)}}
+.float{animation:fl 3s ease-in-out infinite alternate}
+.float2{animation:fl 3.6s ease-in-out infinite alternate-reverse}
+@keyframes fl{from{transform:translateY(-6px)}to{transform:translateY(6px)}}
+.confetti{animation:conf 6s linear infinite}
+@keyframes conf{from{transform:translateY(-80px) rotate(0)}to{transform:translateY(1000px) rotate(540deg)}}
+.kb{transform-origin:800px 500px;animation:kb 24s ease-in-out infinite alternate}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.045)}}
+.idle{animation:breathe 3.4s ease-in-out infinite alternate}
+@keyframes breathe{from{transform:scaleY(1)}to{transform:scaleY(1.012)}}
+.talker{animation:hop .42s ease-in-out infinite alternate}
+@keyframes hop{from{transform:translateY(0)}to{transform:translateY(-9px)}}
+.blink{animation:blink 4.2s infinite}
+@keyframes blink{0%,93%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+.mouth-talk{animation:mt .17s ease-in-out infinite alternate}
+@keyframes mt{from{transform:scaleY(.35)}to{transform:scaleY(1.05)}}
+.arm-talk{animation:armt .55s ease-in-out infinite alternate}
+@keyframes armt{from{transform:rotate(0)}to{transform:rotate(-38deg)}}
+
+</style>
+<style>header,#rot{display:none!important}main{padding-top:18px!important}</style></head>
+<body>
+<header><div class="hrow">
+  <div class="logo">🎧 Lily &amp; Ben 听力营 <small id="hstat"></small></div>
+  <nav id="nav"><button data-v="home">今日</button><button data-v="cal">日历</button><button data-v="role">🎭 角色扮演</button><button data-v="lib">故事库</button><button data-v="words">词汇本</button><button data-v="gram">句型本</button><button data-v="guide">说明</button></nav>
+</div></header>
+<main id="main"></main>
+<div id="rot"><div style="font-size:90px">📱↻</div><p>请把 iPad 横过来使用</p></div>
+
+<audio id="A" preload="auto" playsinline></audio>
+<script src="../assets/lbdata.7c40b3184b.js"></script>
+<script>
+const ENV = __LB.ENV;
+// ===== 插画引擎：角色 + 场景（SVG） =====
+const ART = (() => {
+const W = 1600, H = 1000;
+const CH = {
+  Lily:{age:'child',skin:'#f8d2b5',hair:'pigtails',hc:'#3a2418',top:'#ff8fb1',top2:'#ffd0de',bottom:'skirt',bc:'#6a7fdb',shoe:'#d64561'},
+  Ben:{age:'child',skin:'#f6cfae',hair:'short',hc:'#2d1d14',top:'#3fa7e0',top2:'#bfe6fb',bottom:'pants',bc:'#34495e',shoe:'#2b2b2b',stripe:true},
+  Mum:{age:'adult',skin:'#f8d4b8',hair:'bob',hc:'#4a2c20',top:'#f4a261',top2:'#ffd6b0',bottom:'skirt',bc:'#7a5c99',shoe:'#8b3a3a'},
+  Dad:{age:'adult',skin:'#f1c7a2',hair:'neat',hc:'#1f1a17',top:'#2a9d8f',top2:'#bdeee7',bottom:'pants',bc:'#3d405b',shoe:'#3a2a22',glasses:1,tall:1},
+  Grandpa:{age:'adult',skin:'#f1c9a8',hair:'bald',hc:'#d5d5d5',top:'#8d6e63',top2:'#d7ccc8',bottom:'pants',bc:'#5d4037',shoe:'#3e2723',glasses:1,mustache:1},
+  Grandma:{age:'adult',skin:'#f6d0b6',hair:'bun',hc:'#dcdcdc',top:'#b56576',top2:'#f2c4ce',bottom:'skirt',bc:'#6d6875',shoe:'#5a3d4a',glasses:1},
+  Kitty:{age:'small',skin:'#fad7bd',hair:'ponytail',hc:'#6b4423',top:'#ffd166',top2:'#fff1c1',bottom:'skirt',bc:'#ef476f',shoe:'#ef476f'},
+  Uncle:{age:'adult',skin:'#efc19c',hair:'neat',hc:'#3b2f2f',top:'#457b9d',top2:'#cfe3f0',bottom:'pants',bc:'#2b2d42',shoe:'#222',tall:1},
+  Aunt:{age:'adult',skin:'#f8d4b8',hair:'long',hc:'#b5523b',top:'#e76f51',top2:'#ffd3c4',bottom:'skirt',bc:'#264653',shoe:'#264653'},
+  Miss:{age:'adult',skin:'#f6d2b6',hair:'long',hc:'#252525',top:'#6d597a',top2:'#e3d5ea',bottom:'skirt',bc:'#355070',shoe:'#2b2b2b',glasses:1},
+  Sam:{age:'child',skin:'#f1c7a5',hair:'curly',hc:'#1b1b1b',top:'#90be6d',top2:'#dff0d0',bottom:'pants',bc:'#43515f',shoe:'#333',glasses:1},
+  Tina:{age:'child',skin:'#c98d62',hair:'braids',hc:'#2a1a10',top:'#f9c74f',top2:'#fff0bf',bottom:'skirt',bc:'#577590',shoe:'#7b2d26'},
+  Jack:{age:'child',skin:'#fde2d0',hair:'short',hc:'#e9c46a',top:'#e63946',top2:'#ffc9cd',bottom:'pants',bc:'#1d3557',shoe:'#222'},
+  MrGreen:{age:'adult',skin:'#f3cfb3',hair:'neat',hc:'#8d5524',top:'#2d6a4f',top2:'#c7ead8',bottom:'pants',bc:'#40513b',shoe:'#3a2a22',beard:1,tall:1},
+  Shop:{age:'adult',skin:'#eebf98',hair:'neat',hc:'#222',top:'#f1faee',top2:'#ffffff',bottom:'pants',bc:'#3d405b',shoe:'#222',apron:'#e76f51'},
+  Waiter:{age:'adult',skin:'#f0c8a6',hair:'neat',hc:'#2a2a2a',top:'#ffffff',top2:'#ffffff',bottom:'pants',bc:'#222',shoe:'#111',bow:1},
+  King:{age:'adult',skin:'#f3cfb3',hair:'neat',hc:'#6b4a2b',top:'#7b2cbf',top2:'#f8e16c',bottom:'robe',bc:'#5a189a',shoe:'#3c096c',crown:1,beard:1,tall:1},
+  Gold:{age:'child',skin:'#fbe0cc',hair:'curls',hc:'#f4c430',top:'#90e0ef',top2:'#e0f7fc',bottom:'skirt',bc:'#0077b6',shoe:'#0077b6'},
+  Coach:{age:'adult',skin:'#e9b98f',hair:'cap',hc:'#222',top:'#e63946',top2:'#ffffff',bottom:'pants',bc:'#e63946',shoe:'#fff',tall:1},
+  Doctor:{age:'adult',skin:'#f6d2b6',hair:'bun',hc:'#2a2a2a',top:'#ffffff',top2:'#a8dadc',bottom:'pants',bc:'#457b9d',shoe:'#fff',coat:1},
+  Guide:{age:'adult',skin:'#f3cfb3',hair:'ponytail',hc:'#3a2a1a',top:'#06d6a0',top2:'#c8f7e8',bottom:'pants',bc:'#264653',shoe:'#222'},
+  Lucy:{age:'child',skin:'#fde2d0',hair:'pigtails',hc:'#f2c14e',top:'#ffb703',top2:'#ffe8a6',bottom:'skirt',bc:'#219ebc',shoe:'#219ebc'},
+  Max:{age:'child',skin:'#fbdcc8',hair:'short',hc:'#c1440e',top:'#8ecae6',top2:'#e2f3fa',bottom:'pants',bc:'#023047',shoe:'#222'},
+};
+const EMOJI_CH = {Coco:['🐶',150], Kiwi:['🦜',120], Nibbles:['🐹',100]};
+const BEARS = {PapaBear:{h:560,c:'#8b5a3c',acc:'tie'}, MamaBear:{h:500,c:'#a0694a',acc:'bow'}, BabyBear:{h:340,c:'#b07a55',acc:'bib'}};
+function bear(name, talking){
+  const b = BEARS[name], c=b.c, l=shade(c,45), d=shade(c,-30);
+  let s = `<ellipse cx="0" cy="0" rx="30" ry="4" fill="#000" opacity=".13"/>`;
+  s += `<ellipse cx="-14" cy="-8" rx="11" ry="9" fill="${d}"/><ellipse cx="14" cy="-8" rx="11" ry="9" fill="${d}"/>`;
+  s += `<ellipse cx="0" cy="-36" rx="28" ry="32" fill="${c}"/><ellipse cx="0" cy="-32" rx="17" ry="22" fill="${l}"/>`;
+  s += `<g class="arm-l" style="transform-origin:-22px -55px"><ellipse cx="-27" cy="-42" rx="8" ry="17" fill="${d}" transform="rotate(15 -27 -42)"/></g>`;
+  s += `<g class="${talking?'arm-talk':'arm-r'}" style="transform-origin:22px -55px"><ellipse cx="27" cy="-42" rx="8" ry="17" fill="${d}" transform="rotate(-15 27 -42)"/></g>`;
+  s += `<circle cx="-17" cy="-98" r="9" fill="${c}"/><circle cx="17" cy="-98" r="9" fill="${c}"/><circle cx="-17" cy="-98" r="5" fill="${l}"/><circle cx="17" cy="-98" r="5" fill="${l}"/>`;
+  s += `<circle cx="0" cy="-80" r="23" fill="${c}"/><ellipse cx="0" cy="-73" rx="11" ry="8.5" fill="${l}"/><ellipse cx="0" cy="-77" rx="4.5" ry="3.2" fill="#2b2b2b"/>`;
+  s += `<g class="blink" style="transform-origin:0px -86px"><circle cx="-8.5" cy="-86" r="2.8" fill="#2b2b2b"/><circle cx="8.5" cy="-86" r="2.8" fill="#2b2b2b"/><circle cx="-7.6" cy="-87" r="1" fill="#fff"/><circle cx="9.4" cy="-87" r="1" fill="#fff"/></g>`;
+  s += talking ? `<ellipse class="mouth-talk" cx="0" cy="-69" rx="3.5" ry="2.8" fill="#7a2335" style="transform-origin:0px -69px"/>` : `<path d="M -4 -70 Q 0 -66 4 -70" stroke="#2b2b2b" stroke-width="1.3" fill="none" stroke-linecap="round"/>`;
+  if (b.acc==='tie') s += `<path d="M -8 -60 L 0 -56 L -8 -52 Z M 8 -60 L 0 -56 L 8 -52 Z" fill="#c1121f"/><circle cx="0" cy="-56" r="2" fill="#9d0208"/>`;
+  if (b.acc==='bow') s += `<path d="M 6 -104 L 15 -99 L 6 -94 Z M 24 -104 L 15 -99 L 24 -94 Z" fill="#ff5d8f"/><circle cx="15" cy="-99" r="2.5" fill="#e63973"/>`;
+  if (b.acc==='bib') s += `<path d="M -11 -58 Q 0 -40 11 -58 Z" fill="#fff" stroke="#8ecae6" stroke-width="1.5"/>`;
+  return s;
+}
+const shade = (hex, amt) => { const n=parseInt(hex.slice(1),16); let r=(n>>16)+amt, g=((n>>8)&255)+amt, b=(n&255)+amt; r=Math.max(0,Math.min(255,r)); g=Math.max(0,Math.min(255,g)); b=Math.max(0,Math.min(255,b)); return '#'+((r<<16)|(g<<8)|b).toString(16).padStart(6,'0'); };
+
+function hair(c, R, hy, back){
+  const k=c.hc, d=shade(k,-25);
+  const cap = `<path d="M ${-R*1.02} ${hy+R*0.05} C ${-R*1.08} ${hy-R*1.25}, ${R*1.08} ${hy-R*1.25}, ${R*1.02} ${hy+R*0.05} C ${R*0.85} ${hy-R*0.55}, ${-R*0.1} ${hy-R*0.72}, ${-R*1.02} ${hy+R*0.05} Z" fill="${k}"/>`;
+  switch(c.hair){
+    case 'short': return back?'' : `<path d="M ${-R*1.03} ${hy+R*0.1} C ${-R*1.1} ${hy-R*1.25}, ${R*1.1} ${hy-R*1.25}, ${R*1.03} ${hy+R*0.1} L ${R*0.78} ${hy-R*0.38} L ${R*0.5} ${hy-R*0.22} L ${R*0.25} ${hy-R*0.46} L ${-R*0.05} ${hy-R*0.28} L ${-R*0.35} ${hy-R*0.5} L ${-R*0.62} ${hy-R*0.3} L ${-R*0.85} ${hy-R*0.45} Z" fill="${k}"/><path d="M ${-R*0.2} ${hy-R*1.05} Q ${R*0.1} ${hy-R*1.35} ${R*0.3} ${hy-R*1.0}" stroke="${k}" stroke-width="${R*0.18}" fill="none" stroke-linecap="round"/>`;
+    case 'neat': return back?'' : cap;
+    case 'cap': return back?'' : `<path d="M ${-R*1.05} ${hy-R*0.2} C ${-R*1.05} ${hy-R*1.25}, ${R*1.05} ${hy-R*1.25}, ${R*1.05} ${hy-R*0.2} Z" fill="${c.top}"/><path d="M ${R*0.2} ${hy-R*0.25} L ${R*1.7} ${hy-R*0.1} Q ${R*1.6} ${hy-R*0.42} ${R*0.6} ${hy-R*0.5} Z" fill="${shade(c.top,-30)}"/><circle cx="0" cy="${hy-R*1.08}" r="${R*0.12}" fill="${shade(c.top,-40)}"/>`;
+    case 'bald': return back?'' : `<path d="M ${-R*1.02} ${hy+R*0.2} Q ${-R*1.12} ${hy-R*0.35} ${-R*0.75} ${hy-R*0.55}" stroke="${k}" stroke-width="${R*0.28}" fill="none" stroke-linecap="round"/><path d="M ${R*1.02} ${hy+R*0.2} Q ${R*1.12} ${hy-R*0.35} ${R*0.75} ${hy-R*0.55}" stroke="${k}" stroke-width="${R*0.28}" fill="none" stroke-linecap="round"/><ellipse cx="${-R*0.3}" cy="${hy-R*0.7}" rx="${R*0.22}" ry="${R*0.1}" fill="#fff" opacity=".35"/>`;
+    case 'bob': return back ? `<path d="M ${-R*1.18} ${hy+R*0.85} C ${-R*1.35} ${hy-R*1.3}, ${R*1.35} ${hy-R*1.3}, ${R*1.18} ${hy+R*0.85} Q 0 ${hy+R*1.05} ${-R*1.18} ${hy+R*0.85} Z" fill="${d}"/>` :
+      `<path d="M ${-R*1.05} ${hy+R*0.4} C ${-R*1.15} ${hy-R*1.25}, ${R*1.15} ${hy-R*1.25}, ${R*1.05} ${hy+R*0.4} L ${R*0.85} ${hy-R*0.35} Q ${R*0.2} ${hy-R*0.6} ${-R*0.5} ${hy-R*0.35} Q ${-R*0.85} ${hy-R*0.2} ${-R*0.92} ${hy+R*0.4} Z" fill="${k}"/>`;
+    case 'long': return back ? `<path d="M ${-R*1.15} ${hy+R*2.1} C ${-R*1.4} ${hy-R*1.3}, ${R*1.4} ${hy-R*1.3}, ${R*1.15} ${hy+R*2.1} Q 0 ${hy+R*2.3} ${-R*1.15} ${hy+R*2.1} Z" fill="${d}"/>` :
+      `<path d="M ${-R*1.05} ${hy+R*0.6} C ${-R*1.15} ${hy-R*1.25}, ${R*1.15} ${hy-R*1.25}, ${R*1.05} ${hy+R*0.6} C ${R*0.95} ${hy-R*0.2}, ${R*0.3} ${hy-R*0.55}, ${-R*0.3} ${hy-R*0.6} Q ${-R*0.8} ${hy-R*0.3} ${-R*0.95} ${hy+R*0.6} Z" fill="${k}"/>`;
+    case 'pigtails': return back ? `<circle cx="${-R*1.22}" cy="${hy+R*0.25}" r="${R*0.5}" fill="${k}"/><circle cx="${R*1.22}" cy="${hy+R*0.25}" r="${R*0.5}" fill="${k}"/><circle cx="${-R*1.0}" cy="${hy-R*0.1}" r="${R*0.14}" fill="#ff5d8f"/><circle cx="${R*1.0}" cy="${hy-R*0.1}" r="${R*0.14}" fill="#ff5d8f"/>` :
+      `<path d="M ${-R*1.04} ${hy+R*0.15} C ${-R*1.12} ${hy-R*1.25}, ${R*1.12} ${hy-R*1.25}, ${R*1.04} ${hy+R*0.15} Q ${R*0.7} ${hy-R*0.5} ${R*0.05} ${hy-R*0.48} Q ${-R*0.7} ${hy-R*0.5} ${-R*1.04} ${hy+R*0.15} Z" fill="${k}"/><path d="M 0 ${hy-R*1.0} L 0 ${hy-R*0.5}" stroke="${d}" stroke-width="${R*0.06}"/>`;
+    case 'ponytail': return back ? `<ellipse cx="${R*1.05}" cy="${hy-R*0.55}" rx="${R*0.42}" ry="${R*0.7}" transform="rotate(25 ${R*1.05} ${hy-R*0.55})" fill="${k}"/>` :
+      cap + `<circle cx="${R*0.72}" cy="${hy-R*0.82}" r="${R*0.13}" fill="#ef476f"/>`;
+    case 'braids': return back ? [0,1,2,3].map(i=>`<ellipse cx="${-R*1.0}" cy="${hy+R*0.25+i*R*0.38}" rx="${R*0.22}" ry="${R*0.24}" fill="${k}"/><ellipse cx="${R*1.0}" cy="${hy+R*0.25+i*R*0.38}" rx="${R*0.22}" ry="${R*0.24}" fill="${k}"/>`).join('') + `<circle cx="${-R*1.0}" cy="${hy+R*1.55}" r="${R*0.12}" fill="#f94144"/><circle cx="${R*1.0}" cy="${hy+R*1.55}" r="${R*0.12}" fill="#f94144"/>` : cap;
+    case 'curly': return back?'' : [[-0.85,-0.35],[-0.6,-0.8],[-0.2,-1.0],[0.2,-1.0],[0.6,-0.8],[0.85,-0.35],[-0.4,-0.55],[0,-0.6],[0.4,-0.55]].map(([x,y])=>`<circle cx="${R*x}" cy="${hy+R*y}" r="${R*0.34}" fill="${k}"/>`).join('');
+    case 'curls': return back ? [-1,1].map(s=>[0,1,2].map(i=>`<circle cx="${s*R*(1.05+i*0.05)}" cy="${hy+R*(0.1+i*0.5)}" r="${R*0.38}" fill="${k}"/>`).join('')).join('') :
+      [[-0.85,-0.3],[-0.55,-0.75],[-0.15,-0.95],[0.25,-0.95],[0.6,-0.75],[0.88,-0.3]].map(([x,y])=>`<circle cx="${R*x}" cy="${hy+R*y}" r="${R*0.36}" fill="${k}"/>`).join('');
+    case 'bun': return back ? `<circle cx="0" cy="${hy-R*1.15}" r="${R*0.45}" fill="${k}"/>` : cap;
+  }
+  return '';
+}
+
+function person(name, talking){
+  const c = CH[name]; if (!c) return '';
+  const child = c.age!=='adult', small = c.age==='small';
+  const R = small?21: child?19.5:15.5, hy = small?-76: child?-79:-85;
+  const y0 = hy+R+2, y1 = small?-30: child?-31:-37;
+  const sw = child?13:15.5, ww = child?11.5:13.5;
+  const sk = c.skin, skd = shade(sk,-22);
+  let s = '';
+  // shadow
+  s += `<ellipse cx="0" cy="0" rx="${child?17:20}" ry="3.2" fill="#000" opacity=".13"/>`;
+  // legs
+  const legC = (c.bottom==='pants') ? c.bc : sk;
+  if (c.bottom==='robe'){ s += `<path d="M ${-ww-2} ${y1-6} L ${-ww-6} -3 L ${ww+6} -3 L ${ww+2} ${y1-6} Z" fill="${c.bc}"/>`; }
+  else s += `<rect x="-9" y="${y1-2}" width="7.5" height="${-y1-1}" rx="3.5" fill="${legC}"/><rect x="1.5" y="${y1-2}" width="7.5" height="${-y1-1}" rx="3.5" fill="${legC}"/>`;
+  s += `<ellipse cx="-5.5" cy="-2.2" rx="6.3" ry="3.2" fill="${c.shoe}"/><ellipse cx="5.5" cy="-2.2" rx="6.3" ry="3.2" fill="${c.shoe}"/>`;
+  // back hair
+  s += `<g>${hair(c,R,hy,true)}</g>`;
+  // arms (behind torso edges)
+  const la = child?23:27;
+  const armL = `<g class="arm-l" style="transform-origin:${-sw+2}px ${y0+3}px"><rect x="${-sw-4.5}" y="${y0+1}" width="7" height="${la}" rx="3.5" fill="${c.coat?'#fff':c.top}" transform="rotate(9 ${-sw+2} ${y0+3})"/><circle cx="${-sw-3.5}" cy="${y0+la+1}" r="3.6" fill="${sk}"/></g>`;
+  const armR = `<g class="${talking?'arm-talk':'arm-r'}" style="transform-origin:${sw-2}px ${y0+3}px"><rect x="${sw-2.5}" y="${y0+1}" width="7" height="${la}" rx="3.5" fill="${c.coat?'#fff':c.top}" transform="rotate(-9 ${sw-2} ${y0+3})"/><circle cx="${sw+3.5}" cy="${y0+la+1}" r="3.6" fill="${sk}"/></g>`;
+  s += armL + armR;
+  // skirt
+  if (c.bottom==='skirt') s += `<path d="M ${-ww} ${y1-4} L ${-ww-6} ${y1+11} Q 0 ${y1+14} ${ww+6} ${y1+11} L ${ww} ${y1-4} Z" fill="${c.bc}"/>`;
+  // torso
+  const tp = `M ${-sw} ${y0+5} Q ${-sw} ${y0} ${-sw+5} ${y0} L ${sw-5} ${y0} Q ${sw} ${y0} ${sw} ${y0+5} L ${ww} ${y1} L ${-ww} ${y1} Z`;
+  s += `<path d="${tp}" fill="${c.top}"/>`;
+  if (c.stripe) s += `<rect x="${-sw+1}" y="${(y0+y1)/2-2}" width="${2*sw-2}" height="4" fill="${c.top2}"/>`;
+  if (c.coat) s += `<path d="M -2 ${y0+1} L -6 ${y1} M 2 ${y0+1} L 6 ${y1}" stroke="#cfd8dc" stroke-width="1.2"/><path d="M -6 ${y0+3} Q -9 ${y0+12} -3 ${y0+15} M 6 ${y0+3} Q 9 ${y0+12} 3 ${y0+15}" stroke="#555" stroke-width="1.4" fill="none"/><circle cx="-3" cy="${y0+16}" r="2" fill="#888"/>`;
+  if (c.apron) s += `<path d="M ${-ww+2} ${y0+8} L ${ww-2} ${y0+8} L ${ww+1} ${y1+8} L ${-ww-1} ${y1+8} Z" fill="${c.apron}"/>`;
+  if (c.bottom==='robe') s += `<path d="M ${-sw} ${y0+4} L ${-sw-3} ${y1-4}" stroke="${c.top2}" stroke-width="3"/><path d="M ${sw} ${y0+4} L ${sw+3} ${y1-4}" stroke="${c.top2}" stroke-width="3"/>`;
+  // collar
+  s += c.bow ? `<path d="M -5 ${y0+1} L 0 ${y0+3.5} L -5 ${y0+6} Z M 5 ${y0+1} L 0 ${y0+3.5} L 5 ${y0+6} Z" fill="#c1121f"/>` :
+       `<path d="M -5.5 ${y0} Q 0 ${y0+6} 5.5 ${y0}" fill="${c.top2}" stroke="${shade(c.top,-20)}" stroke-width=".6"/>`;
+  if (c.age==='adult' && c.hair==='cap') s += `<path d="M -3 ${y0+2} Q 0 ${y0+12} 3 ${y0+2}" stroke="#ccc" stroke-width="1" fill="none"/><circle cx="0" cy="${y0+12}" r="1.8" fill="#bbb"/>`;
+  // neck + head
+  s += `<rect x="-3.5" y="${hy+R-4}" width="7" height="7" fill="${skd}"/>`;
+  s += `<circle cx="${-R*0.98}" cy="${hy+R*0.12}" r="${R*0.2}" fill="${skd}"/><circle cx="${R*0.98}" cy="${hy+R*0.12}" r="${R*0.2}" fill="${skd}"/>`;
+  s += `<circle cx="0" cy="${hy}" r="${R}" fill="${sk}"/>`;
+  if (c.beard) s += `<path d="M ${-R*0.85} ${hy+R*0.15} Q ${-R*0.8} ${hy+R*1.15} 0 ${hy+R*1.15} Q ${R*0.8} ${hy+R*1.15} ${R*0.85} ${hy+R*0.15} Q ${R*0.5} ${hy+R*0.75} 0 ${hy+R*0.72} Q ${-R*0.5} ${hy+R*0.75} ${-R*0.85} ${hy+R*0.15} Z" fill="${c.hc}"/>`;
+  // face
+  const ex = R*0.37, ey = hy+R*0.08;
+  s += `<g class="blink" style="transform-origin:0px ${ey}px">` +
+       `<ellipse cx="${-ex}" cy="${ey}" rx="${R*0.11}" ry="${R*0.15}" fill="#2b2b2b"/><ellipse cx="${ex}" cy="${ey}" rx="${R*0.11}" ry="${R*0.15}" fill="#2b2b2b"/>` +
+       `<circle cx="${-ex+R*0.04}" cy="${ey-R*0.05}" r="${R*0.045}" fill="#fff"/><circle cx="${ex+R*0.04}" cy="${ey-R*0.05}" r="${R*0.045}" fill="#fff"/></g>`;
+  s += `<path d="M ${-ex-R*0.14} ${ey-R*0.3} Q ${-ex} ${ey-R*0.38} ${-ex+R*0.14} ${ey-R*0.3} M ${ex-R*0.14} ${ey-R*0.3} Q ${ex} ${ey-R*0.38} ${ex+R*0.14} ${ey-R*0.3}" stroke="${shade(c.hc==='#dcdcdc'||c.hc==='#d5d5d5'?'#9e9e9e':c.hc,-10)}" stroke-width="${R*0.07}" fill="none" stroke-linecap="round"/>`;
+  s += `<ellipse cx="${-R*0.58}" cy="${hy+R*0.4}" rx="${R*0.17}" ry="${R*0.1}" fill="#ff8a8a" opacity=".45"/><ellipse cx="${R*0.58}" cy="${hy+R*0.4}" rx="${R*0.17}" ry="${R*0.1}" fill="#ff8a8a" opacity=".45"/>`;
+  s += `<path d="M ${-R*0.07} ${hy+R*0.28} Q 0 ${hy+R*0.36} ${R*0.07} ${hy+R*0.28}" stroke="${skd}" stroke-width="${R*0.06}" fill="none" stroke-linecap="round"/>`;
+  if (c.mustache) s += `<path d="M ${-R*0.38} ${hy+R*0.5} Q 0 ${hy+R*0.32} ${R*0.38} ${hy+R*0.5} Q 0 ${hy+R*0.45} ${-R*0.38} ${hy+R*0.5} Z" fill="${c.hc}"/>`;
+  s += talking ? `<ellipse class="mouth-talk" cx="0" cy="${hy+R*0.55}" rx="${R*0.17}" ry="${R*0.14}" fill="#a83246" style="transform-origin:0px ${hy+R*0.55}px"/>`
+               : `<path d="M ${-R*0.2} ${hy+R*0.5} Q 0 ${hy+R*0.68} ${R*0.2} ${hy+R*0.5}" stroke="#a83246" stroke-width="${R*0.07}" fill="none" stroke-linecap="round"/>`;
+  if (c.glasses) s += `<g stroke="#3a3a3a" stroke-width="${R*0.055}" fill="none"><circle cx="${-ex}" cy="${ey}" r="${R*0.24}"/><circle cx="${ex}" cy="${ey}" r="${R*0.24}"/><path d="M ${-ex+R*0.24} ${ey} L ${ex-R*0.24} ${ey}"/></g>`;
+  // front hair
+  s += hair(c,R,hy,false);
+  if (c.crown) s += `<path d="M ${-R*0.75} ${hy-R*0.75} L ${-R*0.75} ${hy-R*1.45} L ${-R*0.38} ${hy-R*1.1} L 0 ${hy-R*1.6} L ${R*0.38} ${hy-R*1.1} L ${R*0.75} ${hy-R*1.45} L ${R*0.75} ${hy-R*0.75} Z" fill="#ffd60a" stroke="#e0a800" stroke-width="1"/><circle cx="0" cy="${hy-R*1.0}" r="${R*0.12}" fill="#e63946"/>`;
+  return s;
+}
+
+// ---------- 场景积木 ----------
+let UID = 0;
+const sky = (a,b) => { const id='sk'+(++UID); return `<defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient></defs><rect width="${W}" height="${H}" fill="url(#${id})"/>`; };
+const cloud = (x,y,s,dur) => `<g class="drift" style="animation-duration:${dur}s"><g transform="translate(${x} ${y}) scale(${s})" opacity=".95"><ellipse cx="0" cy="0" rx="70" ry="38" fill="#fff"/><ellipse cx="55" cy="-18" rx="55" ry="40" fill="#fff"/><ellipse cx="110" cy="2" rx="60" ry="34" fill="#fff"/><ellipse cx="55" cy="14" rx="90" ry="26" fill="#fff"/></g></g>`;
+const sun = (x,y) => { const id='sg'+(++UID); return `<defs><radialGradient id="${id}"><stop offset=".6" stop-color="#ffd93d"/><stop offset="1" stop-color="#ffb703"/></radialGradient></defs><g transform="translate(${x} ${y})"><circle r="120" fill="#ffe680" opacity=".25" class="pulse"/><circle r="72" fill="url(#${id})"/></g>`; };
+const hill = (y, c, amp=60) => `<path d="M 0 ${y} C 300 ${y-amp}, 500 ${y+amp*0.4}, 800 ${y-amp*0.6} S 1300 ${y+amp*0.3}, 1600 ${y-amp*0.5} L 1600 ${H} L 0 ${H} Z" fill="${c}"/>`;
+const tree = (x,y,s=1,c='#57a773') => `<g transform="translate(${x} ${y}) scale(${s})"><rect x="-14" y="-150" width="28" height="150" rx="8" fill="#8d6346"/><circle cx="0" cy="-200" r="95" fill="${c}"/><circle cx="-60" cy="-160" r="65" fill="${shade(c,-12)}"/><circle cx="60" cy="-165" r="68" fill="${shade(c,-6)}"/><circle cx="-25" cy="-240" r="45" fill="${shade(c,15)}" opacity=".7"/></g>`;
+const pine = (x,y,s=1,c='#2d6a4f') => `<g transform="translate(${x} ${y}) scale(${s})"><rect x="-10" y="-40" width="20" height="40" fill="#6b4423"/><path d="M 0 -300 L 90 -140 L 50 -140 L 110 -40 L -110 -40 L -50 -140 L -90 -140 Z" fill="${c}"/></g>`;
+const flower = (x,y,c) => `<g transform="translate(${x} ${y})"><path d="M0 0 L0 -40" stroke="#4c956c" stroke-width="4"/>${[0,72,144,216,288].map(a=>`<ellipse cx="0" cy="-52" rx="9" ry="14" fill="${c}" transform="rotate(${a} 0 -40)"/>`).join('')}<circle cx="0" cy="-40" r="7" fill="#ffd166"/></g>`;
+const floorWood = (y,c='#c99a6b') => `<rect x="0" y="${y}" width="${W}" height="${H-y}" fill="${c}"/>` + [0,1,2,3,4].map(i=>`<line x1="0" y1="${y+20+i*(H-y)/5}" x2="${W}" y2="${y+20+i*(H-y)/5}" stroke="${shade(c,-18)}" stroke-width="3" opacity=".5"/>`).join('') + `<rect x="0" y="${y-14}" width="${W}" height="14" fill="${shade(c,-35)}"/>`;
+const wall = (c, pattern) => `<rect width="${W}" height="${H}" fill="${c}"/>` + (pattern ? Array.from({length:17},(_,i)=>`<rect x="${i*100}" y="0" width="50" height="${H}" fill="${shade(c,-6)}" opacity=".5"/>`).join('') : '');
+const windowV = (x,y,w,h,night) => `<g transform="translate(${x} ${y})"><rect x="-10" y="-10" width="${w+20}" height="${h+20}" rx="8" fill="#fff"/><rect width="${w}" height="${h}" fill="${night?'#1d2951':'#bfe6ff'}"/>${night?`<circle cx="${w*0.7}" cy="${h*0.3}" r="22" fill="#fff6c2"/><circle cx="${w*0.2}" cy="${h*0.2}" r="3" fill="#fff" class="twinkle"/><circle cx="${w*0.4}" cy="${h*0.55}" r="2.5" fill="#fff" class="twinkle" style="animation-delay:1s"/>`:`<ellipse cx="${w*0.3}" cy="${h*0.35}" rx="40" ry="16" fill="#fff"/>`}<rect x="${w/2-4}" width="8" height="${h}" fill="#fff"/><rect y="${h/2-4}" width="${w}" height="8" fill="#fff"/><path d="M -20 -20 Q ${w*0.15} ${h*0.5} -10 ${h+20} L -40 ${h+20} L -40 -20 Z" fill="#e07a5f" opacity=".85"/><path d="M ${w+20} -20 Q ${w*0.85} ${h*0.5} ${w+10} ${h+20} L ${w+40} ${h+20} L ${w+40} -20 Z" fill="#e07a5f" opacity=".85"/></g>`;
+const frame = (x,y,w,h,inner) => `<g transform="translate(${x} ${y})"><rect width="${w}" height="${h}" rx="4" fill="#8d6346"/><rect x="10" y="10" width="${w-20}" height="${h-20}" fill="${inner||'#a8dadc'}"/><path d="M 10 ${h-10} L ${w*0.4} ${h*0.45} L ${w*0.6} ${h*0.65} L ${w*0.75} ${h*0.5} L ${w-10} ${h-10} Z" fill="#6a994e"/><circle cx="${w*0.72}" cy="${h*0.3}" r="12" fill="#ffd166"/></g>`;
+const plant = (x,y,s=1) => `<g transform="translate(${x} ${y}) scale(${s})"><path d="M -35 0 L -28 -60 L 28 -60 L 35 0 Z" fill="#d4a373"/><g class="sway" style="transform-origin:0px -60px"><ellipse cx="-25" cy="-110" rx="18" ry="50" fill="#52b788" transform="rotate(-25 -25 -110)"/><ellipse cx="25" cy="-110" rx="18" ry="50" fill="#40916c" transform="rotate(25 25 -110)"/><ellipse cx="0" cy="-125" rx="18" ry="60" fill="#74c69d"/></g></g>`;
+const sofa = (x,y,c='#6a8caf') => `<g transform="translate(${x} ${y})"><rect x="-200" y="-150" width="400" height="110" rx="40" fill="${shade(c,-15)}"/><rect x="-210" y="-80" width="420" height="70" rx="25" fill="${c}"/><rect x="-240" y="-120" width="60" height="120" rx="25" fill="${shade(c,-25)}"/><rect x="180" y="-120" width="60" height="120" rx="25" fill="${shade(c,-25)}"/><rect x="-180" y="-10" width="16" height="12" fill="#5a3e2b"/><rect x="164" y="-10" width="16" height="12" fill="#5a3e2b"/><rect x="-140" y="-130" width="80" height="60" rx="18" fill="#f4a261" transform="rotate(-8 -100 -100)"/></g>`;
+const lamp = (x,y) => `<g transform="translate(${x} ${y})"><rect x="-4" y="-300" width="8" height="300" fill="#555"/><ellipse cx="0" cy="0" rx="40" ry="8" fill="#555"/><path d="M -60 -300 L -40 -380 L 40 -380 L 60 -300 Z" fill="#ffe8a3"/><ellipse cx="0" cy="-300" rx="80" ry="20" fill="#fff3c4" opacity=".4" class="pulse"/></g>`;
+const shelf = (x,y,w=300) => `<g transform="translate(${x} ${y})"><rect width="${w}" height="14" fill="#8d6346"/>${Array.from({length:Math.floor(w/32)},(_,i)=>`<rect x="${8+i*32}" y="${-60-(i%3)*8}" width="24" height="${60+(i%3)*8}" fill="${['#e76f51','#2a9d8f','#e9c46a','#457b9d','#8338ec','#f4a261'][i%6]}"/>`).join('')}</g>`;
+const table = (x,y,w=360,c='#a26a42') => `<g transform="translate(${x} ${y})"><rect x="${-w/2}" y="-150" width="${w}" height="22" rx="6" fill="${c}"/><rect x="${-w/2+20}" y="-128" width="18" height="128" fill="${shade(c,-25)}"/><rect x="${w/2-38}" y="-128" width="18" height="128" fill="${shade(c,-25)}"/></g>`;
+const stars = (n=40) => Array.from({length:n},(_,i)=>`<circle cx="${(i*397)%W}" cy="${(i*131)%520+20}" r="${1.5+(i%3)}" fill="#fff" class="twinkle" style="animation-delay:${(i%7)*0.6}s"/>`).join('');
+const rainFx = () => `<g class="rainfx">${Array.from({length:70},(_,i)=>`<line x1="${(i*233)%W}" y1="${(i*97)%H-200}" x2="${(i*233)%W-14}" y2="${(i*97)%H-160}" stroke="#d0e6ff" stroke-width="3" class="drop" style="animation-delay:${(i%10)*0.09}s"/>`).join('')}</g>`;
+const snowFx = () => Array.from({length:55},(_,i)=>`<circle cx="${(i*277)%W}" cy="${(i*89)%H-100}" r="${4+(i%4)*2}" fill="#fff" class="flake" style="animation-delay:${(i%11)*0.5}s;animation-duration:${6+(i%5)}s"/>`).join('');
+const leavesFx = (cols=['#e76f51','#f4a261','#e9c46a']) => Array.from({length:16},(_,i)=>`<ellipse cx="${(i*311)%W}" cy="-40" rx="14" ry="8" fill="${cols[i%3]}" class="leaf" style="animation-delay:${i*0.7}s;animation-duration:${8+(i%4)*2}s"/>`).join('');
+const bunting = (y) => { let s = `<path d="M 0 ${y} Q ${W/2} ${y+60} ${W} ${y}" stroke="#555" stroke-width="3" fill="none"/>`; for (let i=0;i<16;i++){ const x=50+i*100, yy=y+60*Math.sin(Math.PI*x/W)*0.95; s+=`<path d="M ${x-28} ${yy} L ${x+28} ${yy} L ${x} ${yy+50} Z" fill="${['#ef476f','#ffd166','#06d6a0','#118ab2','#8338ec'][i%5]}"/>`; } return s; };
+const building = (x,y,w,h,c) => `<g transform="translate(${x} ${y})"><rect x="0" y="${-h}" width="${w}" height="${h}" fill="${c}"/>${Array.from({length:Math.floor(h/70)*Math.floor(w/60)},(_,i)=>{const cols=Math.floor(w/60); return `<rect x="${15+(i%cols)*60}" y="${-h+20+Math.floor(i/cols)*70}" width="30" height="40" fill="#fdf0b5" opacity="${(i*7)%3?0.9:0.4}"/>`;}).join('')}</g>`;
+const blackboard = (x,y) => `<g transform="translate(${x} ${y})"><rect x="-12" y="-12" width="624" height="284" rx="8" fill="#8d6346"/><rect width="600" height="260" fill="#2f5d50"/><text x="40" y="80" font-size="46" fill="#fff" opacity=".85" font-family="Andika,sans-serif">Hello, class!</text><path d="M 40 140 Q 140 110 240 150 T 440 140" stroke="#ffd166" stroke-width="5" fill="none" opacity=".8"/><rect x="420" y="250" width="90" height="12" fill="#ddd"/></g>`;
+const desks = (y) => [200,560,920,1280].map(x=>`<g transform="translate(${x} ${y})"><rect x="0" y="-110" width="200" height="16" rx="4" fill="#d4a373"/><rect x="10" y="-94" width="12" height="94" fill="#8d6346"/><rect x="178" y="-94" width="12" height="94" fill="#8d6346"/></g>`).join('');
+const water = (y,c='#4cc9f0') => `<rect x="0" y="${y}" width="${W}" height="${H-y}" fill="${c}"/><g class="wave">${Array.from({length:10},(_,i)=>`<path d="M ${i*180-60} ${y+30+(i%3)*40} q 40 -18 80 0 t 80 0" stroke="#fff" stroke-width="4" fill="none" opacity=".55"/>`).join('')}</g>`;
+const mountains = (y) => `<path d="M 0 ${y} L 250 ${y-330} L 480 ${y-120} L 760 ${y-420} L 1050 ${y-150} L 1320 ${y-360} L 1600 ${y-80} L 1600 ${H} L 0 ${H} Z" fill="#8ecae6" opacity=".75"/><path d="M 700 ${y-375} L 760 ${y-420} L 820 ${y-375} L 790 ${y-360} L 760 ${y-380} L 730 ${y-358} Z" fill="#fff"/><path d="M 0 ${y+40} L 320 ${y-180} L 620 ${y+10} L 950 ${y-230} L 1250 ${y} L 1600 ${y-140} L 1600 ${H} L 0 ${H} Z" fill="#52b788"/>`;
+const lantern = (x,y,s=1) => `<g transform="translate(${x} ${y}) scale(${s})" class="sway" style="transform-origin:${x}px ${y-60}px"><line x1="0" y1="-60" x2="0" y2="-30" stroke="#8d0801" stroke-width="3"/><ellipse cx="0" cy="0" rx="34" ry="30" fill="#d62828"/><rect x="-14" y="-34" width="28" height="8" fill="#fcbf49"/><rect x="-14" y="26" width="28" height="8" fill="#fcbf49"/><line x1="0" y1="34" x2="0" y2="60" stroke="#fcbf49" stroke-width="3"/></g>`;
+const counter = (y,c='#bc6c25') => `<rect x="0" y="${y-160}" width="${W}" height="160" fill="${c}"/><rect x="0" y="${y-175}" width="${W}" height="20" fill="${shade(c,25)}"/>`;
+const columns = (c='#f1e4c3') => [120,460,1140,1480].map(x=>`<g><rect x="${x-40}" y="80" width="80" height="760" fill="${c}"/><rect x="${x-55}" y="60" width="110" height="30" fill="${shade(c,-15)}"/><rect x="${x-55}" y="830" width="110" height="30" fill="${shade(c,-15)}"/></g>`).join('');
+const curtains = (c='#9d0208') => `<path d="M 0 0 L 260 0 Q 200 500 300 920 L 0 920 Z" fill="${c}"/><path d="M ${W} 0 L ${W-260} 0 Q ${W-200} 500 ${W-300} 920 L ${W} 920 Z" fill="${c}"/><rect x="0" y="0" width="${W}" height="70" fill="${shade(c,-20)}"/>`;
+
+const BG = {
+  home: () => wall('#fdf0d5',1) + windowV(640,160,320,260) + frame(1180,190,200,150) + shelf(140,330,260) + lamp(1460,860) + plant(150,860,1.1) + floorWood(860) + `<ellipse cx="800" cy="930" rx="420" ry="45" fill="#e07a5f" opacity=".35"/>`,
+  bedroom: () => wall('#e8f1fb',1) + windowV(120,150,280,240,false) + `<g transform="translate(1180 860)"><rect x="-220" y="-170" width="440" height="80" rx="18" fill="#fff"/><rect x="-240" y="-100" width="480" height="100" rx="18" fill="#90caf9"/><rect x="-250" y="-260" width="30" height="260" rx="10" fill="#8d6346"/><rect x="220" y="-200" width="30" height="200" rx="10" fill="#8d6346"/><ellipse cx="-140" cy="-170" rx="70" ry="30" fill="#fff"/></g>` + frame(620,170,180,140,'#ffe5ec') + shelf(560,420,240) + floorWood(860,'#d9b38c'),
+  kitchen: () => wall('#eaf4f4') + Array.from({length:8},(_,i)=>Array.from({length:4},(_,j)=>`<rect x="${100+i*70}" y="${320+j*70}" width="66" height="66" fill="#fff" stroke="#cfe0e0" stroke-width="2"/>`).join('')).join('') + `<rect x="80" y="120" width="580" height="160" rx="10" fill="#b7d3d3"/><rect x="1000" y="140" width="420" height="300" rx="12" fill="#e9ecef"/><rect x="1040" y="180" width="340" height="220" rx="8" fill="#bfe6ff"/>` + counter(860,'#9c6644') + `<rect x="1200" y="560" width="220" height="150" rx="10" fill="#adb5bd"/><circle cx="1260" cy="600" r="18" fill="#6c757d"/><circle cx="1360" cy="600" r="18" fill="#6c757d"/>` + `<rect x="0" y="860" width="${W}" height="140" fill="#dfe7e7"/>`,
+  classroom: () => wall('#eef6e8',1) + blackboard(500,140) + windowV(130,170,240,220) + windowV(1270,170,240,220) + `<rect x="0" y="560" width="${W}" height="16" fill="#cbb89d"/>` + floorWood(880,'#d8c3a5') + desks(990),
+  school: () => sky('#9ad4ff','#e6f6ff') + cloud(200,140,1,70) + cloud(1050,110,0.8,90) + sun(1420,150) + `<g transform="translate(330 760)"><rect x="0" y="-420" width="940" height="420" fill="#f2e8cf"/><rect x="0" y="-440" width="940" height="30" fill="#bc6c25"/>${Array.from({length:12},(_,i)=>`<rect x="${40+(i%6)*150}" y="${-380+Math.floor(i/6)*150}" width="90" height="100" fill="#a8dadc" stroke="#fff" stroke-width="6"/>`).join('')}<rect x="400" y="-140" width="140" height="140" fill="#8d6346"/><rect x="360" y="-500" width="220" height="70" rx="10" fill="#e63946"/><text x="470" y="-452" text-anchor="middle" font-size="40" fill="#fff" font-family="sans-serif" font-weight="700">SCHOOL</text></g><line x1="1380" y1="760" x2="1380" y2="420" stroke="#999" stroke-width="8"/><path d="M 1384 425 L 1500 450 L 1384 480 Z" fill="#e63946" class="sway" style="transform-origin:1384px 450px"/>` + `<rect x="0" y="760" width="${W}" height="240" fill="#cdb79e"/>` + tree(150,800,0.9) + flower(1250,880,'#ff8fab') + flower(1300,890,'#ffd166'),
+  playground: () => sky('#a6dcff','#e9f7ff') + cloud(150,120,0.9,80) + cloud(900,90,1.1,95) + sun(1450,140) + hill(640,'#95d5b2',40) + `<rect x="0" y="700" width="${W}" height="300" fill="#e76f51"/><path d="M 0 760 L ${W} 760 M 0 840 L ${W} 840 M 0 920 L ${W} 920" stroke="#fff" stroke-width="5" opacity=".8"/>` + `<g transform="translate(1350 700)"><rect x="-8" y="-300" width="16" height="300" fill="#888"/><rect x="-80" y="-360" width="160" height="110" fill="#fff" stroke="#e63946" stroke-width="6"/><circle cx="0" cy="-240" r="30" fill="none" stroke="#f77f00" stroke-width="6"/></g>` + tree(140,700,0.8),
+  park: () => sky('#9fdcff','#e8f8ff') + cloud(120,130,1,75) + cloud(800,90,0.8,100) + cloud(1300,160,0.7,85) + sun(1430,140) + hill(560,'#b7e4c7',70) + hill(680,'#74c69d',40) + `<rect x="0" y="760" width="${W}" height="240" fill="#80c46a"/><path d="M 600 1000 Q 800 820 1100 760 L 1250 760 Q 950 840 850 1000 Z" fill="#e9d8a6"/>` + tree(180,800,1) + tree(1420,790,0.9,'#52b788') + flower(400,900,'#ff8fab') + flower(450,920,'#ffd166') + flower(1150,920,'#cdb4db') + `<g class="bird"><path d="M 0 0 q 15 -15 30 0 q 15 -15 30 0" stroke="#333" stroke-width="4" fill="none"/></g>`,
+  zoo: () => sky('#a0dcff','#f0fbff') + cloud(200,120,0.9,70) + cloud(1100,100,0.8,90) + sun(1450,130) + hill(620,'#a7c957',50) + `<rect x="0" y="740" width="${W}" height="260" fill="#9bc53d"/>` + Array.from({length:17},(_,i)=>`<rect x="${i*100}" y="600" width="14" height="160" fill="#8d6346"/>`).join('') + `<rect x="0" y="630" width="${W}" height="12" fill="#8d6346"/><rect x="0" y="700" width="${W}" height="12" fill="#8d6346"/>` + tree(120,760,0.9,'#6a994e') + tree(1480,760,0.8,'#386641') + `<g transform="translate(800 560)"><rect x="-150" y="-60" width="300" height="70" rx="12" fill="#f77f00"/><text x="0" y="-12" text-anchor="middle" font-size="40" fill="#fff" font-weight="700" font-family="sans-serif">HAPPY ZOO</text></g>`,
+  farm: () => sky('#bde0fe','#f1f8ff') + cloud(250,130,1,80) + sun(1400,150) + hill(600,'#c9e4ca',60) + `<rect x="0" y="720" width="${W}" height="280" fill="#b08968"/>` + Array.from({length:6},(_,i)=>`<path d="M 0 ${760+i*45} Q 800 ${740+i*45} ${W} ${760+i*45}" stroke="#7f5539" stroke-width="5" fill="none" opacity=".5"/>`).join('') + `<g transform="translate(1250 720)"><rect x="-160" y="-260" width="320" height="260" fill="#c1121f"/><path d="M -190 -250 L 0 -400 L 190 -250 Z" fill="#780000"/><rect x="-50" y="-150" width="100" height="150" fill="#fff"/><path d="M -50 -150 L 50 0 M 50 -150 L -50 0" stroke="#c1121f" stroke-width="8"/></g>` + Array.from({length:8},(_,i)=>`<rect x="${60+i*90}" y="640" width="12" height="90" fill="#ddb892"/>`).join('') + `<rect x="50" y="660" width="720" height="10" fill="#ddb892"/>` + leavesFx(['#bc6c25','#dda15e','#e9c46a']),
+  beach: () => sky('#7fd1ff','#d6f3ff') + cloud(250,140,0.9,90) + sun(1350,170) + `<rect x="0" y="480" width="${W}" height="200" fill="#219ebc"/>` + water(480,'#38b6e8') + `<path d="M 0 700 Q 400 640 800 680 T ${W} 660 L ${W} ${H} L 0 ${H} Z" fill="#f6d8a8"/><path d="M 0 700 Q 400 640 800 680 T ${W} 660" stroke="#fff" stroke-width="10" fill="none" opacity=".8"/>` + `<g transform="translate(1420 820)"><rect x="-6" y="-300" width="12" height="300" fill="#8d6346"/><path d="M -180 -300 Q 0 -420 180 -300 Z" fill="#ef476f"/><path d="M -60 -300 Q 0 -420 60 -300 Z" fill="#fff"/></g>`,
+  street: () => sky('#a8dcff','#eef9ff') + cloud(300,110,0.8,80) + cloud(1200,140,0.7,100) + building(60,760,260,420,'#ffcdb2') + building(340,760,220,520,'#b5838d') + building(980,760,240,480,'#a5a58d') + building(1250,760,300,380,'#6d6875') + `<rect x="580" y="380" width="380" height="380" fill="#e5989b"/><rect x="600" y="560" width="160" height="200" fill="#a8dadc"/><path d="M 580 500 L 960 500 L 940 450 L 600 450 Z" fill="#2a9d8f"/><rect x="0" y="760" width="${W}" height="60" fill="#adb5bd"/><rect x="0" y="820" width="${W}" height="180" fill="#6c757d"/>` + Array.from({length:8},(_,i)=>`<rect x="${40+i*210}" y="905" width="110" height="12" fill="#fff"/>`).join(''),
+  shop: () => wall('#fff1e6') + Array.from({length:3},(_,j)=>`<rect x="80" y="${180+j*170}" width="560" height="14" fill="#a26a42"/>` + Array.from({length:9},(_,i)=>`<rect x="${100+i*60}" y="${120+j*170}" width="44" height="60" rx="6" fill="${['#e63946','#ffb703','#2a9d8f','#8338ec','#06d6a0','#f77f00'][(i+j)%6]}"/>`).join('')).join('') + windowV(980,160,420,300) + counter(880,'#b5651d') + `<rect x="0" y="880" width="${W}" height="120" fill="#e3d5ca"/>`,
+  restaurant: () => wall('#fdf2e9',1) + windowV(200,160,300,240) + windowV(1100,160,300,240) + `<g>${[0,1,2,3,4].map(i=>lantern(240+i*280,110,0.8)).join('')}</g>` + `<rect x="620" y="170" width="360" height="240" rx="14" fill="#3d405b"/><text x="800" y="250" text-anchor="middle" fill="#ffd166" font-size="44" font-family="Andika,sans-serif">MENU</text><text x="800" y="320" text-anchor="middle" fill="#fff" font-size="28" font-family="sans-serif">noodles · rice · tea</text>` + floorWood(860,'#b08968'),
+  hospital: () => wall('#eef7f9') + `<rect x="0" y="520" width="${W}" height="24" fill="#8ecae6"/>` + `<g transform="translate(800 260)"><rect x="-70" y="-70" width="140" height="140" rx="20" fill="#fff"/><rect x="-18" y="-50" width="36" height="100" fill="#e63946"/><rect x="-50" y="-18" width="100" height="36" fill="#e63946"/></g>` + windowV(150,170,260,220) + windowV(1190,170,260,220) + plant(1460,880,0.9) + `<rect x="0" y="880" width="${W}" height="120" fill="#d8e2dc"/>`,
+  library: () => wall('#f8edeb') + [0,1,2,3].map(j=>shelf(80,200+j*170,560)+shelf(960,200+j*170,560)).join('') + `<rect x="0" y="880" width="${W}" height="120" fill="#c9ada7"/>` + lamp(800,880),
+  museum: () => wall('#f5ebe0') + columns('#e3d5ca') + frame(560,170,240,180,'#ffd6a5') + frame(840,200,200,150,'#caffbf') + `<g transform="translate(800 880)"><rect x="-90" y="-180" width="180" height="180" fill="#d5bdaf"/><circle cx="0" cy="-230" r="60" fill="#cdb4db"/></g>` + `<rect x="0" y="880" width="${W}" height="120" fill="#d6ccc2"/>`,
+  palace: () => wall('#ffe8b6') + curtains('#7b2cbf') + columns('#ffd166') + `<g transform="translate(800 880)"><rect x="-140" y="-80" width="280" height="80" fill="#9d0208"/><rect x="-110" y="-300" width="220" height="230" rx="30" fill="#c1121f"/><rect x="-90" y="-260" width="180" height="150" rx="20" fill="#ffd166"/></g>` + `<rect x="0" y="880" width="${W}" height="120" fill="#bc6c25"/><rect x="560" y="880" width="480" height="120" fill="#c1121f"/>`,
+  hall: () => wall('#f1faee') + curtains('#e63946') + `<rect x="300" y="720" width="1000" height="160" fill="#a26a42"/>` + [0,1,2,3,4].map(i=>`<rect x="${380+i*180}" y="200" width="140" height="190" rx="8" fill="${['#ffd6a5','#caffbf','#9bf6ff','#bdb2ff','#ffc6ff'][i]}"/>`).join('') + bunting(110) + `<rect x="0" y="880" width="${W}" height="120" fill="#d8c3a5"/>`,
+  stadium: () => `<rect width="${W}" height="${H}" fill="#2b2d42"/>` + Array.from({length:6},(_,j)=>Array.from({length:40},(_,i)=>`<circle cx="${20+i*40}" cy="${150+j*55}" r="14" fill="${['#ef476f','#ffd166','#06d6a0','#118ab2','#f1faee'][(i*j+i)%5]}" opacity=".8"/>`).join('')).join('') + `<g class="pulse"><circle cx="200" cy="60" r="40" fill="#fff3b0"/><circle cx="1400" cy="60" r="40" fill="#fff3b0"/></g><rect x="0" y="480" width="${W}" height="520" fill="#e09f3e"/><path d="M 0 700 L ${W} 700" stroke="#fff" stroke-width="5"/><circle cx="800" cy="760" r="120" fill="none" stroke="#fff" stroke-width="5"/>` + `<rect x="0" y="470" width="${W}" height="14" fill="#9e2a2b"/>`,
+  forest: () => sky('#b8e0d2','#eaf4f4') + `<g opacity=".55">${pine(100,700,1.1,'#74a57f')}${pine(400,690,1.2,'#74a57f')}${pine(1200,700,1.1,'#74a57f')}${pine(1500,690,1.0,'#74a57f')}</g>` + hill(700,'#6a994e',30) + pine(180,860,1.3) + pine(1450,860,1.4,'#1b4332') + pine(1250,880,1.0) + `<rect x="0" y="860" width="${W}" height="140" fill="#588157"/>` + `<g class="bird" style="animation-duration:22s"><path d="M 0 0 q 12 -12 24 0 q 12 -12 24 0" stroke="#333" stroke-width="3" fill="none"/></g>`,
+  garden: () => sky('#cde8ff','#f3fbff') + cloud(300,120,0.8,90) + `<path d="M 0 520 L ${W} 520 L ${W} 640 L 0 640 Z" fill="#f2f2f2"/><path d="M 0 500 L ${W} 500 L ${W} 530 L 0 530 Z" fill="#495057"/>` + `<g transform="translate(1100 640)"><path d="M -260 0 L -200 -200 L 200 -200 L 260 0 Z" fill="#6c757d"/><path d="M -300 -190 Q 0 -300 300 -190 L 260 -170 Q 0 -260 -260 -170 Z" fill="#343a40"/><rect x="-60" y="-140" width="120" height="140" fill="#8d6346"/></g>` + `<ellipse cx="600" cy="850" rx="420" ry="90" fill="#48cae4"/><path d="M 320 840 Q 600 700 880 840" stroke="#e85d04" stroke-width="16" fill="none"/>` + `<rect x="0" y="640" width="${W}" height="80" fill="#95d5b2"/><rect x="0" y="900" width="${W}" height="100" fill="#95d5b2"/>` + tree(150,700,0.9,'#2d6a4f') + flower(1400,900,'#ff8fab') + flower(1460,910,'#f72585') + `<g class="wave"><ellipse cx="520" cy="860" rx="30" ry="12" fill="#f77f00" opacity=".9"/></g>`,
+  mountain: () => sky('#a2d2ff','#f0f8ff') + cloud(200,120,0.9,80) + cloud(1100,160,0.7,100) + sun(1400,130) + mountains(760) + `<rect x="0" y="840" width="${W}" height="160" fill="#40916c"/>` + pine(120,900,0.8) + pine(1480,900,0.9),
+  river: () => sky('#a8dcff','#e9f7ff') + cloud(300,110,0.9,85) + cloud(1200,90,0.7,100) + sun(1430,140) + hill(560,'#a7c957',50) + water(640,'#48b5e0') + `<path d="M 0 780 Q 400 740 800 800 T ${W} 780 L ${W} ${H} L 0 ${H} Z" fill="#80b918"/>` + tree(140,800,0.9) + tree(1460,800,0.8,'#2d6a4f'),
+  night: () => sky('#0b1d51','#2a3d7a') + stars(55) + `<circle cx="1320" cy="190" r="80" fill="#fff6c2"/><circle cx="1295" cy="170" r="80" fill="#0b1d51" opacity=".0"/><circle cx="1320" cy="190" r="130" fill="#fff6c2" opacity=".12" class="pulse"/>` + `<g opacity=".9">${building(60,860,220,300,'#1b263b')}${building(300,860,180,380,'#22304a')}${building(1050,860,240,320,'#1b263b')}${building(1320,860,240,260,'#22304a')}</g>` + `<rect x="0" y="860" width="${W}" height="140" fill="#1b263b"/>`,
+  snow: () => sky('#cfe8ff','#f5fbff') + hill(600,'#ffffff',60) + hill(720,'#f1f6fb',30) + pine(160,820,1,'#2d6a4f') + `<path d="M 60 760 L 160 640 L 260 760 Z" fill="#fff" opacity=".9"/>` + pine(1460,820,1.1,'#1b4332') + `<rect x="0" y="820" width="${W}" height="180" fill="#fdfdff"/>` + snowFx(),
+  rain: () => sky('#8d99ae','#c9d1db') + `<g class="drift" style="animation-duration:120s">${[100,500,900,1300].map((x,i)=>`<g transform="translate(${x} ${120+i%2*40})"><ellipse rx="140" ry="55" fill="#6c757d"/><ellipse cx="90" cy="-20" rx="100" ry="60" fill="#7d8590"/></g>`).join('')}</g>` + hill(640,'#6a994e',40) + `<rect x="0" y="760" width="${W}" height="240" fill="#588157"/>` + `<ellipse cx="500" cy="900" rx="160" ry="20" fill="#8ecae6" opacity=".6"/><ellipse cx="1200" cy="880" rx="120" ry="16" fill="#8ecae6" opacity=".6"/>` + rainFx(),
+  party: () => wall('#fff4e6',1) + bunting(60) + bunting(170) + [[200,320,'#ef476f'],[1400,300,'#ffd166'],[1300,360,'#06d6a0'],[320,380,'#118ab2']].map(([x,y,c])=>`<g class="float"><ellipse cx="${x}" cy="${y}" rx="45" ry="56" fill="${c}"/><path d="M ${x} ${y+56} q -10 60 10 120" stroke="#888" stroke-width="2" fill="none"/></g>`).join('') + windowV(620,240,360,240) + table(800,880,600,'#e9c46a') + floorWood(880,'#deb887') + Array.from({length:30},(_,i)=>`<rect x="${(i*173)%W}" y="${(i*97)%600}" width="10" height="16" fill="${['#ef476f','#ffd166','#06d6a0','#118ab2'][i%4]}" class="confetti" style="animation-delay:${(i%10)*0.4}s"/>`).join(''),
+};
+const GROUND = {beach:900, zoo:930, park:930, farm:935, street:930, river:930, school:930, playground:930, snow:930, rain:930, forest:940, garden:960, mountain:940, stadium:920};
+
+function emojiText(e, x, y, size, cls=''){ return `<text x="${x}" y="${y}" font-size="${size}" text-anchor="middle" class="${cls}" style="font-family:'Apple Color Emoji','Segoe UI Emoji','Noto Color Emoji',sans-serif">${e}</text>`; }
+
+function scene(sc, talker){
+  const bg = (BG[sc.bg] || BG.home)();
+  const gy = GROUND[sc.bg] || 950;
+  const who = (sc.who||'').split(/\s+/).filter(Boolean).map(w=>{ const [n,x]=w.split(':'); return {n, x:+x}; });
+  const many = who.length >= 4 ? 0.88 : 1;
+  let props = '';
+  (sc.props||'').split('|').map(s=>s.trim()).filter(Boolean).forEach((p,i)=>{
+    const [e,x,y,z] = p.split(/\s+/); props += emojiText(e, +x/100*W, +y/100*H, +z/100*W, i%2?'float':'float2');
+  });
+  let ppl = '';
+  who.forEach((w,i)=>{
+    const x = w.x/100*W;
+    if (BEARS[w.n]){ const Hh=BEARS[w.n].h*many, sc2=Hh/110, flip=x>W/2?-1:1, talk=w.n===talker;
+      ppl += `<g class="${talk?'talker':'idle'}" style="transform-origin:${x}px ${gy}px">` + (talk?`<ellipse cx="${x}" cy="${gy+6}" rx="${Hh*0.22}" ry="${Hh*0.035}" fill="#ffd166" opacity=".55"/>`:'') + `<g transform="translate(${x} ${gy}) scale(${sc2*flip} ${sc2})">${bear(w.n, talk)}</g></g>`; return; }
+    if (EMOJI_CH[w.n]){ const [e,sz]=EMOJI_CH[w.n]; ppl += `<g class="${w.n===talker?'talker':'idle'}" style="transform-origin:${x}px ${gy}px">${emojiText(e, x, gy-10, sz)}</g>`; return; }
+    const c = CH[w.n]; if (!c) return;
+    const Hh = (c.age==='adult' ? (c.tall?540:510) : c.age==='small' ? 330 : 400) * many;
+    const sc2 = Hh/100, flip = x > W/2 ? -1 : 1;
+    const talk = w.n===talker;
+    ppl += `<g class="${talk?'talker':'idle'}" style="transform-origin:${x}px ${gy}px;animation-delay:${i*0.35}s">` +
+           (talk ? `<ellipse cx="${x}" cy="${gy+6}" rx="${Hh*0.22}" ry="${Hh*0.035}" fill="#ffd166" opacity=".55"/>` : '') +
+           `<g transform="translate(${x} ${gy}) scale(${sc2*flip} ${sc2})">${person(w.n, talk)}</g></g>`;
+  });
+  return `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><g class="kb">${bg}</g>${props}${ppl}</svg>`;
+}
+return { scene, person, bear, CH, EMOJI_CH, BEARS, BG, GROUND };
+})();
+
+const EPS = __LB.EPS;
+const IDX = __LB.IDX;
+const NAMES = __LB.NAMES;
+const AUDIO_BASE = "../audio/";
+const TOTAL = 90, TARGET = 1800, TGT = {m:2400, e:900};
+const tgt = ()=> SES ? TGT[SES.kind] : TARGET;
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const shuffle = a => { a=[...a]; for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]];} return a; };
+const sleep = ms => new Promise(r=>setTimeout(r,ms));
+function ymdL(){ const d=new Date(); return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); }
+// ---------- 跟读打分与即时反馈 ----------
+// 有语音识别（iPad 的 Safari）：按读对的词算“准确率”，读对的词变绿、读错/漏读的标红。
+// 没有语音识别（如 iPad 的 Edge）：用麦克风听，按“有没有读全、长度够不够”算“完整度”，还能回放自己读的。
+// 两种都 ≥80% 算通过，自动进下一句；麦克风也用不了时，退回“读完了”按钮。
+const ASR = window.SpeechRecognition || window.webkitSpeechRecognition;
+let ASR_STATE = ASR ? "unknown" : "off";        // unknown / ok / off
+let ASR_WHY = ASR ? "" : "这个浏览器没有语音识别（iPad 上请用 Safari）";
+let ASR_MISS = 0;                                 // 连续几次没启动
+const ASR_ERR = {
+  "not-allowed":"没有允许语音识别。Safari 弹窗时请点“允许”；或到 设置 → Safari → 麦克风 改成“允许”",
+  "service-not-allowed":"iPad 没有打开听写：设置 → 通用 → 键盘 → 打开“启用听写”",
+  "audio-capture":"麦克风被别的程序占用了",
+  "language-not-supported":"没有英语语音识别：设置 → 通用 → 键盘 → 听写语言，勾上英语",
+  "network":"语音识别要联网，请检查网络"};
+function asrOff(why){ ASR_STATE="off"; ASR_WHY=why; diag("语音识别不可用："+why); }
+function micRelease(){ try{ if(MIC.stream) MIC.stream.getTracks().forEach(t=>t.stop()); }catch(e){} MIC.stream=null; }
+// ---- iPad 音量：用过麦克风/语音识别后，系统会停在“通话”音量（明显变小）。
+// 听的时候才切到“边放边录”，听完马上切回“播放”，并让音频引擎休息，音量就回到正常。
+const ASESS = (()=>{ try{ return navigator.audioSession || (window.parent!==window && window.parent.navigator.audioSession) || null; }catch(e){ return navigator.audioSession||null; } })();
+let LISTENING = 0;
+function sessSet(t){ try{ if(ASESS && ASESS.type!==t) ASESS.type=t; }catch(e){} }
+function sessRec(){ LISTENING=1; sessSet("play-and-record"); }
+function sessPlay(){ LISTENING=0; micRelease(); sessSet("playback"); ctxIdle(); }
+let CTX_IDLE_T=0;
+function ctxIdle(ms){ clearTimeout(CTX_IDLE_T); CTX_IDLE_T=setTimeout(()=>{ try{ if(!LISTENING && MIC.ctx && MIC.ctx.state==="running") MIC.ctx.suspend(); }catch(e){} }, ms||900); }
+function ctxWake(){ clearTimeout(CTX_IDLE_T); try{ if(MIC.ctx && MIC.ctx.state!=="running") return MIC.ctx.resume(); }catch(e){} return Promise.resolve(); }
+sessSet("playback");
+// 点“开始”时先启动一次语音识别：第一次会弹出授权框，必须在点按的那一刻发起
+let ASR_WARMING=false;
+function asrWarm(){
+  if(!ASR || ASR_STATE!=="unknown" || ASR_WARMING) return; ASR_WARMING=true;
+  try{ const r=new ASR(); r.lang="en-US";
+    r.onstart=()=>{ ASR_STATE="ok"; ASR_MISS=0; try{ r.abort(); }catch(e){} };
+    r.onerror=ev=>{ const er=ev.error||""; if(ASR_ERR[er] && er!=="network") asrOff(ASR_ERR[er]); };
+    r.onend=()=>{ ASR_WARMING=false; sessPlay(); };
+    sessRec(); r.start(); }catch(e){ ASR_WARMING=false; sessPlay(); }
+}
+let TURN = null;
+const PASS = 0.8;
+const NUMW = {"0":"zero","1":"one","2":"two","3":"three","4":"four","5":"five","6":"six","7":"seven","8":"eight","9":"nine","10":"ten","11":"eleven","12":"twelve","13":"thirteen","14":"fourteen","15":"fifteen","16":"sixteen","17":"seventeen","18":"eighteen","19":"nineteen","20":"twenty","30":"thirty","40":"forty","50":"fifty","60":"sixty","70":"seventy","80":"eighty","90":"ninety","100":"one hundred","1000":"one thousand","2000":"two thousand"};
+const BRW = {colour:"color",colours:"colors",favourite:"favorite",grey:"gray",mum:"mom",mummy:"mommy",centre:"center",practise:"practice",practises:"practices",metre:"meter",theatre:"theater",neighbour:"neighbor",ok:"okay",cannot:"can not",gonna:"going to",wanna:"want to"};
+function toks(t){ return String(t).toLowerCase().replace(/[’`]/g,"'").replace(/-/g," ").replace(/[^a-z0-9' ]/g," ").split(/\s+/).filter(Boolean)
+  .map(w=>{ w=w.replace(/'/g,""); return NUMW[w]||BRW[w]||w; }).join(" ").split(" ").filter(Boolean); }
+function lev(a,b){ const m=a.length,n=b.length; if(Math.abs(m-n)>2) return 9; let p=Array.from({length:n+1},(_,j)=>j);
+  for(let i=1;i<=m;i++){ const c=[i]; for(let j=1;j<=n;j++) c[j]=Math.min(p[j]+1,c[j-1]+1,p[j-1]+(a[i-1]===b[j-1]?0:1)); p=c; } return p[n]; }
+let NAMESET = null;
+function same(a,b){ if(a===b) return true; if(!NAMESET) NAMESET=new Set(Object.values(NAMES).map(x=>String(x).toLowerCase())); const d=lev(a,b); if(NAMESET.has(a)) return d<=2; return (a.length>=4&&d<=1)||(a.length>=7&&d<=2); }
+function matchScore(T, H){
+  const m=T.length,n=H.length, D=Array.from({length:m+1},()=>new Array(n+1).fill(0));
+  for(let i=1;i<=m;i++) for(let j=1;j<=n;j++) D[i][j]= same(T[i-1],H[j-1]) ? D[i-1][j-1]+1 : Math.max(D[i-1][j],D[i][j-1]);
+  const hit=new Set(); let i=m,j=n; while(i>0&&j>0){ if(same(T[i-1],H[j-1])&&D[i][j]===D[i-1][j-1]+1){ hit.add(i-1); i--; j--; } else if(D[i-1][j]>=D[i][j-1]) i--; else j--; }
+  return {score: m? D[m][n]/m : 0, hit};
+}
+// ---- 麦克风（没有语音识别时用） ----
+const MIC = {stream:null, ctx:null, state:"unknown"};
+function micPrime(){   // 在点按钮的那一刻调用：iPad 要求声音和麦克风由点击触发
+  try{ if(!MIC.ctx){ const C=window.AudioContext||window.webkitAudioContext; if(C) MIC.ctx=new C(); } if(MIC.ctx&&MIC.ctx.state!=="running") MIC.ctx.resume(); }catch(e){}
+  if (ASR_STATE==="off"){ if(MIC.state==="unknown"){ sessRec(); micOpen().then(()=>sessPlay()); } }   // 只在第一次要授权，马上关掉，不让麦克风一直开着压低音量
+  else asrWarm();
+}
+async function micOpen(){
+  if (MIC.stream && MIC.stream.active) return true; if (MIC.state==="off") return false;
+  try{ MIC.stream = await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:true,noiseSuppression:true,autoGainControl:true}}); MIC.state="ok"; return true; }
+  catch(e){ MIC.state="off"; diag("mic: "+(e&&e.name)); return false; }
+}
+function tone(ok){ const c=MIC.ctx; if(!c) return; ctxWake().then(()=>toneNow(c, ok)).catch(()=>{}); }
+function toneNow(c, ok){ try{ const t=c.currentTime;
+  (ok?[880,1175]:[440]).forEach((f,i)=>{ const o=c.createOscillator(), g=c.createGain(); o.type="sine"; o.frequency.value=f;
+    g.gain.setValueAtTime(0.0001,t+i*0.11); g.gain.exponentialRampToValueAtTime(ok?0.12:0.06,t+i*0.11+0.02); g.gain.exponentialRampToValueAtTime(0.0001,t+i*0.11+(ok?0.3:0.25));
+    o.connect(g); g.connect(c.destination); o.start(t+i*0.11); o.stop(t+i*0.11+0.4); }); }catch(e){} ctxIdle(1200); }
+// 录一次：读完停 0.9 秒自动结束；返回响度包络、说话时长、录音
+function recordOnce(maxMs, onLevel, isOver){
+  return new Promise(res=>{
+    const c=MIC.ctx; ctxWake(); const src=c.createMediaStreamSource(MIC.stream), an=c.createAnalyser(); an.fftSize=1024; src.connect(an);
+    const buf=new Float32Array(an.fftSize), env=[]; let floor=1, spoke=false, first=0, last=0, t0=performance.now(), done=false;
+    let mr=null, chunks=[]; try{ mr=new MediaRecorder(MIC.stream); mr.ondataavailable=e=>{ if(e.data&&e.data.size) chunks.push(e.data); }; mr.start(); }catch(e){ mr=null; }
+    const end=()=>{ if(done) return; done=true; clearInterval(tk); try{src.disconnect();}catch(e){}
+      const out=blob=>res({env, thr:Math.max(0.012,floor*4), spoke, speechMs:spoke?last-first+120:0, blob});
+      if(mr&&mr.state!=="inactive"){ mr.onstop=()=>out(chunks.length?new Blob(chunks,{type:chunks[0].type||"audio/mp4"}):null); try{mr.stop();}catch(e){ out(null); } } else out(null); };
+    const tk=setInterval(()=>{ if(isOver()) return end();
+      an.getFloatTimeDomainData(buf); let s=0; for(let i=0;i<buf.length;i++) s+=buf[i]*buf[i]; const rms=Math.sqrt(s/buf.length), t=performance.now()-t0; env.push(rms);
+      if(t<350){ floor=Math.min(floor, rms); return; }
+      const thr=Math.max(0.012, floor*4); onLevel(Math.min(1, rms/(thr*5)));
+      if(rms>thr){ if(!spoke){ spoke=true; first=t; } last=t; }
+      if((spoke && t-last>900) || t>maxMs || (!spoke && t>7000)) end(); }, 40);
+  });
+}
+function syllables(text){ return text.toLowerCase().replace(/[^a-z ]/g," ").split(/\s+/).filter(Boolean).reduce((n,w)=>n+Math.max(1,(w.replace(/e$/,"").match(/[aeiouy]+/g)||[]).length),0); }
+function completeness(r, text, refSec){
+  if(!r.spoke) return 0;
+  const hi=r.thr*1.6, lo=r.thr*1.1; let up=false, peaks=0; const e=r.env.map((v,i,a)=>(v+(a[i-1]||v)+(a[i+1]||v))/3);
+  e.forEach(v=>{ if(!up && v>hi){ up=true; peaks++; } else if(up && v<lo) up=false; });
+  const want=syllables(text), cnt=Math.min(1, peaks/Math.max(1,want*0.55)), dur=Math.min(1, (r.speechMs/1000)/Math.max(0.4,refSec*0.6));
+  return Math.round((0.5*cnt+0.5*dur)*100)/100;
+}
+// ---- 星星：每句按读得好坏得 0–3 颗，攒在按钮旁边 ----
+let STAR_N = 0;
+function addStars(n){ if(!n) return; STAR_N+=n; const el=document.getElementById("starbox"); if(!el) return;
+  el.innerHTML=`⭐ <b>${STAR_N}</b><em>+${n}</em>`; el.classList.remove("bump"); void el.offsetWidth; el.classList.add("bump"); }
+// ---- 一句跟读：读 → 马上出结果 → 过了自动下一句 ----
+function speakTurn(text, replay, opt){
+  opt=opt||{};
+  return new Promise(resolve=>{
+    const panel=opt.panel||$("#turn"), subEn=opt.subEn===undefined?document.querySelector("#sub .en"):opt.subEn, refSec=opt.dur||text.split(/\s+/).length*0.45;
+    const words=text.split(/\s+/), wordTok=words.map(w=>toks(w).length), T=toks(text);
+    let tries=0, over=false, rec=null, timers=[], best=0, lastBlob=null, mode=null, useMicOnce=false;
+    const later=(f,ms)=>timers.push(setTimeout(f,ms));
+    const paint=(hit, final)=>{ if(!subEn) return; if(opt.hide && !final){ subEn.innerHTML=opt.mask||""; return; } let k=0; subEn.innerHTML=words.map((w,i)=>{ const n=wordTok[i]; let on=n>0; for(let q=0;q<n;q++) if(!hit.has(k+q)) on=false; k+=n; return `<span class="w ${on?"hit":final?"miss":""} ${opt.mark&&opt.mark(i)?"nw":""}">${esc(w)}</span>`; }).join(" "); };
+    const clean=()=>{ timers.forEach(t=>{ clearTimeout(t); clearInterval(t); }); timers=[]; if(rec){ const r=rec; rec=null; r.onend=r.onresult=r.onerror=r.onstart=null; try{r.abort();}catch(e){} } };
+    const finish=r=>{ if(over) return; over=true; TURN=null; clean(); sessPlay();
+      if(!r.aborted && (mode==="asr"||mode==="mic")) addStars(best>=0.95?3:best>=PASS?2:best>=0.5?1:0);
+      resolve(r); };
+    TURN={abort:()=>finish({aborted:true})};
+    const B=(id,cls,txt)=>`<button class="btn ${cls}" id="${id}">${txt}</button>`;
+    const q=id=>panel.querySelector("#"+id);
+    const bind=()=>{
+      const n=q("t-next"), a=q("t-again"), h=q("t-hear"), me=q("t-me");
+      if(n) n.onclick=()=>finish({score:best, pass:best>=PASS, tries, mode});
+      if(a) a.onclick=()=>{ micPrime(); listen(); };
+      if(h) h.onclick=async()=>{ clean(); sessPlay(); panel.innerHTML=`<span class="st">🔊 再听一遍…</span>`; await replay(); if(!over) listen(); };
+      if(me) me.onclick=()=>{ if(!lastBlob) return; try{ const u=URL.createObjectURL(lastBlob); const au=new Audio(u); au.play(); au.onended=()=>URL.revokeObjectURL(u); }catch(e){} };
+    };
+    // 结果：分数 + 一句话 + 星星；过了 1.6 秒后自动下一句
+    // 结果：小朋友看星星和一句话；分数小字留给家长。不弹窗、不挡画面
+    const PRAISE=["真棒！","读得真好！","Great!","Good job!","好清楚！"];
+    function result(score, label){
+      best=Math.max(best, score); const pct=Math.round(score*100), pass=score>=PASS;
+      const stars=pct>=95?3:pass?2:pct>=50?1:0;
+      const say = pass ? PRAISE[Math.floor(Math.random()*PRAISE.length)] : pct>=50 ? "差一点点，看红色的词再读一次" : "声音大一点，再读一次";
+      sessPlay(); tone(pass);
+      panel.innerHTML=`<div class="fb ${pass?"pass":"fail"}">
+        <div class="stars">${[0,1,2].map(i=>`<span class="${i<stars?"on":""}" style="animation-delay:${i*0.12}s">★</span>`).join("")}</div>
+        <div class="fbt"><div class="say">${say}</div><div class="lab">${label} ${pct}%</div></div>
+        <div class="fbb">${lastBlob?B("t-me","ghost","▶ 听我读的"):""}${pass?B("t-next","next","下一句 →"):B("t-hear","ghost","🔊 原句")+B("t-again","","🎤 再读一次")+(tries>=3?B("t-next","ghost","这句先过 →"):"")}</div></div>`;
+      bind();
+      if(pass) later(()=>finish({score:best, pass:true, tries, mode}), 1600);
+    }
+    function manual(){ mode="manual"; sessPlay(); panel.innerHTML=`<span class="st mic">🗣 大声跟读</span>${B("t-hear","ghost","🔊 再听一遍")}${B("t-next","next","读完了，下一句 →")}`; bind(); }
+    function listening(extra){ panel.innerHTML=`<div class="lis"><span class="micdot">🎤</span><span class="st mic">轮到你读了</span><span class="meter"><i id="t-lv"></i></span>${extra||""}</div>`; }
+    // 方式一：语音识别
+    function viaASR(){
+      // 一直听到孩子读完：中途卡住、停一下、从头重读都没关系——
+      // 停顿被系统切断就接着再听；读全了立刻打分；否则安静 2 秒后打分。分数取所有听到的内容里读对的词。
+      mode="asr"; tries++; micRelease(); sessRec();
+      let heard="", sc={score:0,hit:new Set()}, judged=false, started=false, lastRes=0, segs=0; const t0=Date.now();
+      const maxMs=Math.max(8000, words.length*1300+6000);
+      const judge=()=>{ if(judged||over) return; judged=true; clean(); paint(sc.hit, true); result(sc.score, "准确率：读对的词占几成"); };
+      listening(B("t-done","ghost","读完了")); const d=q("t-done"); if(d) d.onclick=()=>{ if(rec) try{ rec.stop(); }catch(e){} judge(); };
+      const startRec=()=>{
+        let r; try{ r=new ASR(); }catch(e){ if(!started){ asrOff("语音识别启动失败"); tries--; return listen(); } return judge(); }
+        rec=r; segs++; r.lang="en-US"; r.interimResults=true; r.continuous=true; r.maxAlternatives=3;
+        const base=heard;   // 前面几段已经听到的
+        r.onstart=()=>{ started=true; ASR_STATE="ok"; ASR_MISS=0; };
+        r.onresult=ev=>{ if(rec!==r) return; let txt="";
+          for(let i=0;i<ev.results.length;i++){ const R=ev.results[i]; let b=null;
+            for(let k=0;k<R.length;k++){ const s2=matchScore(T,toks(base+" "+txt+" "+R[k].transcript)); if(!b||s2.score>b.s.score) b={t:R[k].transcript,s:s2}; }
+            txt+=" "+b.t; }
+          heard=base+" "+txt; lastRes=Date.now();
+          const s2=matchScore(T,toks(heard)); if(s2.score>=sc.score) sc=s2; paint(sc.hit,false);
+          const lv=q("t-lv"); if(lv) lv.style.width=Math.round(30+70*sc.score)+"%";
+          if(sc.score>=0.999){ try{ r.stop(); }catch(e){} judge(); } };
+        r.onerror=ev=>{ const er=ev.error||""; diag("asr error: "+er);
+          if(!started && ASR_ERR[er]){ rec=null; clean(); if(er==="network") { ASR_WHY=ASR_ERR[er]; useMicOnce=true; } else asrOff(ASR_ERR[er]); tries--; listen(); } };
+        r.onend=()=>{ if(rec!==r) return; rec=null; if(judged||over) return;
+          const el=Date.now()-t0, quiet=lastRes?Date.now()-lastRes:el;
+          // 系统在停顿处结束了识别，但孩子可能还在读：没读全、没超时、刚才还在说话，就接着听
+          if(started && sc.score<0.999 && el<maxMs && segs<6 && (lastRes ? quiet<2500 : el<7000)) return startRec();
+          judge(); };
+        try{ r.start(); }catch(e){ if(!started){ clean(); diag("asr start: "+(e&&e.message)); ASR_WHY="语音识别启动失败"; useMicOnce=true; tries--; listen(); } else judge(); }
+      };
+      startRec();
+      // 10 秒都没启动（第一次可能在等授权）：这一句先用麦克风；连续 3 句都这样才认为用不了
+      later(()=>{ if(!started && !judged){ const r=rec; rec=null; try{ r&&r.abort(); }catch(e){} clean(); ASR_MISS++; if(ASR_MISS>=3) asrOff("语音识别一直没有响应（可能是听写没打开，或网络不通）"); else { ASR_WHY="语音识别没有响应"; useMicOnce=true; } tries--; listen(); } }, 10000);
+      // 说过话以后安静 2.2 秒，就算读完
+      const tick=setInterval(()=>{ if(judged||over){ clearInterval(tick); return; }
+        if((lastRes && Date.now()-lastRes>2200) || Date.now()-t0>maxMs){ clearInterval(tick); const r=rec; rec=null; try{ r&&r.stop(); }catch(e){} judge(); } }, 250);
+      timers.push(tick);
+    }
+    // 方式二：麦克风录音 + 完整度
+    async function viaMic(){
+      mode="mic"; tries++; listening(); paint(new Set(), false); sessRec();
+      const r=await recordOnce(Math.max(5000, refSec*2500+3000), lv=>{ const el=q("t-lv"); if(el) el.style.width=Math.round(lv*100)+"%"; }, ()=>over);
+      micRelease(); if(over) return; lastBlob=r.blob; if(opt.hide && subEn) subEn.textContent=text; result(completeness(r, text, refSec), `完整度（只看读全没有）· 没用上语音识别：${ASR_WHY||"原因见说明页"}`);
+    }
+    async function listen(){
+      if(over) return; clean();
+      if(ASR_STATE!=="off" && !useMicOnce) return viaASR();
+      useMicOnce=false;
+      if(MIC.state!=="off"){ sessRec(); if(await micOpen() && MIC.ctx) return viaMic(); }
+      manual();
+    }
+    paint(new Set(), false); listen();
+  });
+}
+
+function tx(sel, v){ const el=document.querySelector(sel); if(el) el.textContent=v; }
+
+// ---------- 存储 ----------
+const mem = {};
+function load(){ try{ const v=localStorage.getItem("lbcamp_v1"); if(v) return JSON.parse(v); }catch(e){} return mem.s || {cur:1, rec:{}}; }
+function save(s){ mem.s=s; try{ localStorage.setItem("lbcamp_v1", JSON.stringify(s)); }catch(e){} }
+let ST = load();
+const rec = d => (ST.rec[d] = ST.rec[d] || {m:0,e:0,md:false,ed:false});
+
+// ---------- 计划 ----------
+function dayInfo(d){
+  const ep = EPS[Math.ceil(d/2)-1]; const part = d%2 ? "A" : "B";
+  const lv = d<=30 ? 1 : d<=60 ? 2 : 3;
+  const lvName = ["", "第一阶段 · 小学 3–4 年级", "第二阶段 · 小学 5–6 年级", "第三阶段 · 初一–初二"][lv];
+  return {d, ep, part, lv, lvName};
+}
+const STEP_NAMES = {show:"早餐磨耳朵（自动播放）", words:"今日新词", blind:"看图听故事", text:"字幕精听", echo:"逐句跟读", pats:"句型跟读", gram:"句型练习", quiz:"听力小测", role:"角色扮演", game:"听音选词", loop:"磨耳朵"};
+function plan(d, kind){
+  const {part} = dayInfo(d);
+  if (kind==="m") return ["show"];
+  const n = (GRAM.p[dayInfo(d).ep.ep]||[]).length;
+  return part==="A" ? ["words","text","echo", n?"gram":"pats","quiz"] : ["game","blind","role", n>1?"gram":"pats","quiz"];
+}
+function streak(){ let n=0; for(let d=ST.cur; d>=1; d--){ const r=ST.rec[d]; if(r&&r.md&&r.ed) n++; else if(d!==ST.cur) break; } return n; }
+function doneCount(){ return Object.values(ST.rec).reduce((a,r)=>a+(r.md?1:0)+(r.ed?1:0),0); }
+
+// ---------- 音频 ----------
+const A = $("#A"); const BLOB = {}; let curUrl = "";
+function srcFor(ep){
+  const key = (typeof ep==="string" ? ep : "ep"+ep)+".mp3";
+  if (BLOB[key]) return BLOB[key];
+  const el = (document.getElementById("f:"+key)||(window.parent!==window&&window.parent.document.getElementById("f:"+key)));
+  if (el){ const bin=atob(el.textContent.trim()); const u8=new Uint8Array(bin.length); for(let i=0;i<bin.length;i++) u8[i]=bin.charCodeAt(i); BLOB[key]=URL.createObjectURL(new Blob([u8],{type:"audio/mpeg"})); return BLOB[key]; }
+  return AUDIO_BASE + key;
+}
+let playId = 0, segTimer = null, curAudioEp = 0;
+function stopAudio(){ playId++; clearInterval(segTimer); segTimer=null; try{A.pause();}catch(e){} }
+function playRange(ep, start, end){
+  return new Promise(resolve=>{
+    stopAudio(); if(!LISTENING) sessSet("playback"); const id = playId; const url = srcFor(ep); curAudioEp = ep;
+    if (curUrl!==url){ curUrl=url; A.src=url; A.load(); }
+    const p = A.play(); if (p && p.catch) p.catch(()=>{});
+    const go = ()=>{ if(id!==playId) return resolve(false); try{ A.currentTime=Math.max(0,start-0.25); }catch(e){}   // 提前 0.25 秒（段与段之间至少 0.6 秒静音），避免开头被吞
+      const pp=A.play(); if(pp&&pp.catch) pp.catch(()=>{});
+      segTimer = setInterval(()=>{ if(id!==playId){ clearInterval(segTimer); return resolve(false);} if(A.currentTime>=end+0.05||A.ended){ clearInterval(segTimer); segTimer=null; A.pause(); resolve(true);} }, 40); };
+    if (A.readyState>=1) go(); else A.addEventListener("loadedmetadata", go, {once:true});
+  });
+}
+const K = (ep,k) => IDX["ep"+ep][k];
+function playKey(ep, k){ const x=K(ep,k); return playRange(ep, x[0], x[0]+x[1]); }
+function storyLines(e){ const L=[]; e.scenes.forEach((sc,i)=>sc.lines.forEach(([spk,txt],j)=>{ const x=K(e.ep,`s${i}l${j}`); L.push({i,j,spk,txt,start:x[0],dur:x[1]}); })); return L; }
+function storyEnd(e){ const x=K(e.ep,"end"); return x[0]+x[1]; }
+
+// ---------- 画面 ----------
+let curScene = null;
+// 动画舞台：用 Remotion 播放组件实时绘制，跟着页面音频走
+let STG = null;
+function stageFor(box, e){
+  if (STG && STG.box===box && STG.ep===e.ep && box.contains(STG.host)) return STG;
+  if (STG){ try{ STG.ctl.destroy(); }catch(x){} STG=null; }
+  box.querySelectorAll(".rstage").forEach(x=>x.remove());
+  const host = document.createElement("div"); host.className = "rstage"; box.appendChild(host);
+  const ctl = LBStage.mount(host, e, IDX["ep"+e.ep], ENV[e.ep] || "");
+  STG = {box, ctl, ep:e.ep, host, wasFollowing:false};
+  return STG;
+}
+let STAGE_OFF = false;
+function diag(msg){ try{ const L=JSON.parse(localStorage.getItem("lb_diag")||"[]"); L.push(new Date().toLocaleString()+" "+String(msg).slice(0,300)); localStorage.setItem("lb_diag", JSON.stringify(L.slice(-8))); }catch(x){} }
+function stageFail(err){ diag("stage: "+(err&&err.message ? err.message+" | "+String(err.stack||"").split("\n").slice(0,3).join(" < ") : err)); if (STG){ try{ STG.ctl.destroy(); }catch(x){} try{ STG.host.remove(); STG.box.classList.remove("rs"); }catch(x){} STG=null; } STAGE_OFF = true; }
+window.LBStageError = err => setTimeout(()=>stageFail(err), 0);
+window.addEventListener("error", ev => diag("err: "+ev.message+" @"+(ev.filename||"").slice(-40)+":"+ev.lineno));
+window.addEventListener("unhandledrejection", ev => diag("rej: "+(ev.reason&&ev.reason.message||ev.reason)));
+// 新动画挂上后 3 秒还没画出东西，就退回静态画面
+setInterval(()=>{ const s=STG; if(!s || !document.body.contains(s.host)) return; const r=s.host.getBoundingClientRect(); if(r.width<10) return;
+  const svg=s.host.querySelector("svg"); const ok = svg && svg.getBoundingClientRect().width>10;
+  s.bad = ok ? 0 : (s.bad||0)+1; if (s.bad>=3) stageFail("blank stage "+Math.round(r.width)+"x"+Math.round(r.height)); }, 1000);
+function stageMime(l){ const s=STG; if(!s) return; try{ s.ctl.seek(l.start); s.ctl.play(); clearTimeout(s.mimeT); s.mimeT=setTimeout(()=>{ if(STG===s && !stageFollowing(s)) s.ctl.pause(); }, l.dur*1000+200); }catch(e){} }
+function stageFollowing(s){ return curAudioEp===s.ep && !A.paused && A.currentTime>=s.ctl.storyStart && A.currentTime<=s.ctl.storyEnd; }
+function drawStage(box, e, i, talker){
+  drawStageOld(box, e, i, (window.LBStage && !STAGE_OFF) ? null : talker);   // 底层静态画面：只在换场景时重画，避免每句台词都重建一层 SVG
+  if (!window.LBStage || STAGE_OFF) return;
+  let s; try { s = stageFor(box, e); } catch(err){ stageFail(err); return; }
+  box.classList.add("rs");
+  if (!stageFollowing(s)){ s.ctl.pause(); s.ctl.seek(s.ctl.lineTime(i, talker)); }
+  const b = box.querySelector(".badge"); if (b) b.textContent = `${i+1} / ${e.scenes.length}`;
+}
+(function stageLoop(){
+  requestAnimationFrame(stageLoop);
+  const s = STG; if (!s) return;
+  if (!document.body.contains(s.host)){ try{ s.ctl.destroy(); }catch(x){} STG=null; return; }
+  if (stageFollowing(s)){
+    const f = A.currentTime * s.ctl.fps;
+    if (!s.ctl.playing()){ s.ctl.seek(A.currentTime); s.ctl.play(); }
+    else if (Math.abs(s.ctl.frame() - f) > 5) s.ctl.seek(A.currentTime);
+    s.wasFollowing = true;
+  } else if (s.wasFollowing){
+    s.wasFollowing = false; s.ctl.pause();
+    if (curAudioEp===s.ep && A.currentTime<=s.ctl.storyEnd) s.ctl.seek(A.currentTime + 0.15);
+  }
+})();
+function drawStageOld(box, e, i, talker){
+  const key = e.ep+":"+i+":"+talker;
+  if (curScene===key && box.querySelector(".lyr")) return; curScene=key;
+  const old = box.querySelector(".lyr.show");
+  const lyr = document.createElement("div"); lyr.className="lyr"; lyr.style.opacity=0;
+  lyr.innerHTML = ART.scene(e.scenes[i], talker);
+  box.appendChild(lyr);
+  requestAnimationFrame(()=>{ lyr.style.opacity=1; lyr.classList.add("show"); });
+  if (old){ old.classList.remove("show"); old.style.opacity=0; setTimeout(()=>old.remove(), 500); }
+  const b = box.querySelector(".badge"); if (b) b.textContent = `${i+1} / ${e.scenes.length}`;
+}
+function avatar(r){ return ART.CH[r] ? `<svg viewBox="-30 -112 60 116">${ART.person(r,false)}</svg>` : ART.BEARS[r] ? `<svg viewBox="-40 -112 80 116">${ART.bear(r,false)}</svg>` : ''; }
+function stageHTML(){ return `<div class="stage" id="stage"><span class="badge"></span></div>`; }
+
+// ---------- 打卡计时 ----------
+let SES = null;
+setInterval(()=>{
+  if (!SES || document.visibilityState!=="visible") return;
+  if (!A.paused || SES.active){ SES.t++; const r=rec(SES.d); r[SES.kind]=Math.max(r[SES.kind], SES.t); if (SES.t%5===0) save(ST); drawBar(); }
+}, 1000);
+function drawBar(){
+  if (!SES) return; const T = tgt(); const p = SES.kind==="e" ? Math.round(SES.steps.filter((x,i)=>SES.done[i]).length/SES.steps.length*100) : Math.min(100, SES.t/T*100);
+  const bar = $("#pbar"); if (bar) bar.style.width = p+"%";
+  const tt = $("#ptime"); if (tt) tt.textContent = (SES.kind==="e" ? `${SES.steps.filter((x,i)=>SES.done[i]).length} / ${SES.steps.length} 步　${Math.floor(SES.t/60)} 分钟` : `${Math.floor(SES.t/60)}:${String(SES.t%60).padStart(2,"0")} / ${T/60}:00`);
+  if (!SES.fin && SES.kind==="e"){ const got=SES.steps.filter((x,i)=>SES.done[i]).length; if (got>=SES.steps.length || (SES.t>=1200 && got>=Math.ceil(SES.steps.length*0.7))) finish(); }
+}
+function finish(){
+  SES.fin = true; const r = rec(SES.d); r[SES.kind==="m"?"md":"ed"] = true; r[SES.kind==="m"?"mdate":"edate"] = ymdL();
+  if (r.md && r.ed && ST.cur===SES.d && ST.cur<TOTAL) ST.cur = SES.d+1;
+  save(ST); stopAudio(); confetti();
+  const m = SES.kind==="m";
+  document.body.insertAdjacentHTML("beforeend", `<div class="overlay" id="ov"><div class="box"><div style="font-size:70px">${m?"☀️":"🌙"}</div><div class="big">打卡成功！</div><p class="tip" style="font-size:16px">Day ${SES.d} ${m?"早餐磨耳朵 40 分钟":"晚上的训练"}完成${r.md&&r.ed?"，今天两次都完成啦 🎉":""}</p><button class="btn" id="ovok">好的</button></div></div>`);
+  $("#ovok").onclick = ()=>{ $("#ov").remove(); SES=null; go("home"); };
+}
+function confetti(){ const c=document.createElement("div"); c.className="confetti-c"; c.innerHTML=Array.from({length:70},(_,i)=>`<i style="left:${Math.random()*100}%;background:${["#ef476f","#ffd166","#06d6a0","#118ab2","#ff7e3b"][i%5]};animation-delay:${Math.random()*0.8}s"></i>`).join(""); document.body.appendChild(c); setTimeout(()=>c.remove(),3600); }
+
+// ---------- 导航 ----------
+let VIEW = "home";
+document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>{ if(SES && !SES.fin && !confirmLeave()) return; SES=null; go(b.dataset.v); });
+function confirmLeave(){ return true; }
+function go(v){ stopAudio(); VIEW=v; document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("on", b.dataset.v===v)); ({home:vHome, cal:vCal, role:vRole, lib:vLib, words:vWords, gram:vGram, guide:vGuide})[v](); hstat(); window.scrollTo(0,0); }
+function hstat(){ $("#hstat").textContent = `· 🔥 连续 ${streak()} 天 · 已打卡 ${doneCount()} / 180 次`; }
+
+// ---------- 首页 ----------
+function vHome(){
+  const d = ST.cur, I = dayInfo(d), r = rec(d), e = I.ep;
+  const st = (k) => r[k+"d"] ? "✓ 已打卡" : r[k] ? (k==="m" ? `${Math.floor(r[k]/60)} / 40 分钟` : `已练 ${Math.floor(r[k]/60)} 分钟`) : "未开始";
+  $("#main").innerHTML = `
+  <div class="card hero">
+    <div class="cover" id="cover"></div>
+    <div>
+      <div class="row"><span class="chip l${I.lv}">${I.lvName}</span><span class="chip">${I.part==="A"?"新故事日":"复习强化日"}</span></div>
+      <div class="tip" style="margin-top:10px">Day ${d} / 90 · 第 ${e.ep} 集 · ${e.topic}</div>
+      <h2 class="en">${esc(e.title)}</h2><div class="tip">${e.cn}</div>
+      <button class="sesbtn m" id="bm"><span class="ic">☀️</span><span><b>早餐磨耳朵 40 分钟</b>${plan(d,"m").map(s=>STEP_NAMES[s]).join(" · ")}</span><span class="st">${st("m")}</span></button>
+      <button class="sesbtn r" id="br" style="background:linear-gradient(135deg,#34c3a0,#1f8f78);min-height:80px"><span class="ic">🎭</span><span><b>角色扮演</b>选角色和故事里的人对台词，两个人可以一起演（随时玩，不计入打卡）</span></button>
+      <button class="sesbtn e" id="be"><span class="ic">🌙</span><span><b>晚上训练 15–20 分钟</b>${plan(d,"e").map(s=>STEP_NAMES[s]).join(" · ")}</span><span class="st">${st("e")}</span></button>
+    </div>
+  </div>
+  <div class="stats"><div><b>${streak()}</b><span>连续打卡天数</span></div><div><b>${doneCount()}</b><span>已打卡次数 / 180</span></div><div><b>${EPS.slice(0,e.ep).reduce((a,x)=>a+x.words.length,0)}</b><span>已学单词</span></div><div><b>${e.ep} / 45</b><span>故事进度</span></div></div>
+  <div class="card" style="margin-top:16px"><div class="row" style="justify-content:space-between"><b>本阶段日历</b><span class="tip">点日期可以切换到那一天</span></div><div class="cal" style="margin-top:12px">${calCells((I.lv-1)*30+1, I.lv*30)}</div></div>`;
+  drawStageOld($("#cover"), e, 0, null);
+  $("#bm").onclick = ()=>startSes(d,"m"); $("#be").onclick = ()=>startSes(d,"e"); $("#br").onclick = ()=>freePlay(e.ep, "role");
+  bindCells();
+}
+function calCells(a,b){ let s=""; for(let d=a; d<=b; d++){ const r=ST.rec[d]||{}; const I=dayInfo(d);
+  s += `<button class="cell ${d===ST.cur?'cur':''} ${r.md&&r.ed?'full':''}" data-d="${d}"><b>${d}</b><span class="mk"><span class="${r.md?'':'off'}">☀️</span><span class="${r.ed?'':'off'}">🌙</span></span><div class="tip" style="font-size:11px;line-height:1.3">${I.part==="A"?"第"+I.ep.ep+"集":"复习"}</div></button>`; } return s; }
+function bindCells(){ document.querySelectorAll(".cell").forEach(c=>c.onclick=()=>{ ST.cur=+c.dataset.d; save(ST); go("home"); }); }
+
+// ---------- 日历 ----------
+function vCal(){
+  $("#main").innerHTML = [1,2,3].map(lv=>`<div class="card"><div class="row" style="justify-content:space-between"><b>第 ${lv} 个月</b><span class="chip l${lv}">${dayInfo(lv*30).lvName}</span></div><div class="cal" style="margin-top:12px">${calCells((lv-1)*30+1, lv*30)}</div></div>`).join("");
+  bindCells();
+}
+
+// ---------- 故事库 ----------
+function vLib(){
+  $("#main").innerHTML = [1,2,3].map(lv=>`<div class="card"><div class="row" style="justify-content:space-between;margin-bottom:12px"><b>${dayInfo(lv*30).lvName}</b><span class="tip">点开可以自由听（不计入打卡）</span></div><div class="lib">${EPS.slice((lv-1)*15, lv*15).map(e=>`<button class="ep" data-e="${e.ep}"><div class="thumb" id="th${e.ep}"></div><div class="meta"><span class="tip">第 ${e.ep} 集 · Day ${e.ep*2-1}–${e.ep*2}</span><b class="en">${esc(e.title)}</b><span class="tip">${e.cn} · ${e.topic}</span></div></button>`).join("")}</div></div>`).join("");
+  // 缩略图延迟绘制
+  const io = ("IntersectionObserver" in window) ? new IntersectionObserver(es=>es.forEach(x=>{ if(x.isIntersecting){ const id=+x.target.id.slice(2); x.target.innerHTML=`<div style="width:100%;height:100%">${ART.scene(EPS[id-1].scenes[0], null)}</div>`; io.unobserve(x.target);} })) : null;
+  document.querySelectorAll(".thumb").forEach(t=>{ if(io) io.observe(t); else t.innerHTML=ART.scene(EPS[+t.id.slice(2)-1].scenes[0],null); });
+  document.querySelectorAll(".ep").forEach(b=>b.onclick=()=>freePlay(+b.dataset.e));
+}
+function freePlay(ep, mode){
+  const e = EPS[ep-1]; mode = mode || "text";
+  SES = null; stopAudio(); curScene = null;
+  document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("on", b.dataset.v===(mode==="role"?"role":"lib")));
+  const M = [["text","📖 听故事"],["echo","🗣 逐句跟读"],["role","🎭 角色扮演"]];
+  $("#main").innerHTML = `<div class="row" style="margin-bottom:12px;justify-content:space-between"><div class="row"><button class="btn ghost" id="back">← 返回</button><b class="en" style="font-size:26px">${esc(e.title)}</b><span class="tip">第 ${e.ep} 集 · ${e.cn}</span></div>
+    <div class="row">${M.map(([k,t])=>`<button class="step ${k===mode?'on':''}" data-m="${k}" style="font-size:17px">${t}</button>`).join("")}</div></div><div id="body"></div>`;
+  $("#back").onclick = ()=>go(mode==="role"?"role":"lib");
+  document.querySelectorAll("[data-m]").forEach(b=>b.onclick=()=>freePlay(ep, b.dataset.m));
+  const body = $("#body");
+  if (mode==="role") lineRunner(body, e, ()=>{}, true);
+  else if (mode==="echo") lineRunner(body, e, ()=>{}, false);
+  else storyPlayer(body, e, false, ()=>{});
+}
+
+// ---------- 角色扮演入口 ----------
+function vRole(){
+  const cur = dayInfo(ST.cur).ep.ep;
+  $("#main").innerHTML = `<div class="card"><div class="row" style="justify-content:space-between"><div><b style="font-size:22px">🎭 角色扮演</b><div class="tip">选一集故事 → 选角色 → 轮到你的角色时声音停下，你来说台词。两个人可以各选一个角色一起演。</div></div><button class="btn teal" id="curr">演今天这集（第 ${cur} 集）</button></div></div>` +
+    [1,2,3].map(lv=>`<div class="card"><b>${dayInfo(lv*30).lvName}</b><div class="lib" style="margin-top:12px">${EPS.slice((lv-1)*15, lv*15).map(e=>`<button class="ep" data-e="${e.ep}"><div class="thumb" id="rt${e.ep}"></div><div class="meta"><span class="tip">第 ${e.ep} 集${e.ep===cur?' · 今天':''}</span><b class="en">${esc(e.title)}</b><span class="tip">${e.cn}</span></div></button>`).join("")}</div></div>`).join("");
+  $("#curr").onclick = ()=>freePlay(cur, "role");
+  lazyThumbs("rt");
+  document.querySelectorAll(".ep").forEach(b=>b.onclick=()=>freePlay(+b.dataset.e, "role"));
+}
+function lazyThumbs(pre){
+  const io = ("IntersectionObserver" in window) ? new IntersectionObserver(es=>es.forEach(x=>{ if(x.isIntersecting){ const id=+x.target.id.slice(pre.length); x.target.innerHTML=ART.scene(EPS[id-1].scenes[0], null); io.unobserve(x.target);} })) : null;
+  document.querySelectorAll(`[id^="${pre}"]`).forEach(t=>{ if(io) io.observe(t); else t.innerHTML=ART.scene(EPS[+t.id.slice(pre.length)-1].scenes[0],null); });
+}
+
+// ---------- 词汇本 ----------
+function vWords(){
+  const upto = dayInfo(ST.cur).ep.ep;
+  $("#main").innerHTML = `<div class="card"><b>已学到第 ${upto} 集，共 ${EPS.slice(0,upto).reduce((a,x)=>a+x.words.length,0)} 个单词</b><div class="tip">点卡片听发音。后面的集数也可以先看看。</div></div>` +
+    EPS.map(e=>`<div class="card" style="${e.ep>upto?'opacity:.55':''}"><div class="row" style="margin-bottom:10px"><b>第 ${e.ep} 集 <span class="en">${esc(e.title)}</span></b><span class="chip l${e.ep<=15?1:e.ep<=30?2:3}">${e.topic}</span></div><div class="wgrid">${e.words.map(([w,c,em],k)=>`<button class="wc" data-ep="${e.ep}" data-k="${k}"><span class="e">${em}</span><span class="en">${esc(w)}</span><span class="cn">${c}</span></button>`).join("")}</div><div style="margin-top:10px">${e.pats.map(([p,c],k)=>`<div class="pat" data-ep="${e.ep}" data-p="${k}"><div class="en">${esc(p)}</div><div class="tip">${c}</div></div>`).join("")}</div></div>`).join("");
+  document.querySelectorAll(".wc").forEach(b=>b.onclick=async()=>{ b.classList.add("hot"); await playKey(+b.dataset.ep, "w"+b.dataset.k); b.classList.remove("hot"); });
+  document.querySelectorAll(".pat").forEach(b=>b.onclick=async()=>{ b.classList.add("hot"); await playKey(+b.dataset.ep, "p"+b.dataset.p); b.classList.remove("hot"); });
+}
+
+// ---------- 说明 ----------
+function asrTestCard(){
+  const st = ASR_STATE==="ok" ? "✓ 能用：跟读按“准确率”打分" : ASR_STATE==="off" ? "✗ 没用上："+esc(ASR_WHY) : "还没试过";
+  return `<div class="card"><b>跟读打分用的语音识别</b> <span class="tip">当前状态：${st}</span>
+    <div class="row" style="margin-top:10px;gap:12px;align-items:center"><button class="btn" id="asrt">🎤 测试一下</button><span class="tip" id="asrr" style="font-size:16px">点按钮后读：<b class="en">Hello, I'm Lily.</b></span></div>
+    <div class="tip" style="margin-top:8px">用不了时先检查：① 在 iPad 自带的 Safari 里打开；② 设置 → 通用 → 键盘 → 打开“启用听写”；③ Safari 问能否使用麦克风和语音识别时点“允许”；④ 网络通畅。</div></div>`;
+}
+function bindAsrTest(){ const b=$("#asrt"); if(!b) return; b.onclick=()=>{
+  const out=$("#asrr"); if(!ASR){ out.textContent="这个浏览器没有语音识别，请用 Safari。"; return; }
+  micRelease(); sessRec(); let r; try{ r=new ASR(); }catch(e){ sessPlay(); out.textContent="启动失败："+e.message; return; }
+  r.lang="en-US"; r.interimResults=true; let got="";
+  r.onstart=()=>{ ASR_STATE="ok"; ASR_WHY=""; ASR_MISS=0; out.textContent="正在听，请读：Hello, I'm Lily."; };
+  r.onresult=ev=>{ got=[...ev.results].map(x=>x[0].transcript).join(" "); out.textContent="听到："+got; };
+  r.onerror=ev=>{ const er=ev.error||""; out.textContent="出错："+(ASR_ERR[er]||er); if(ASR_ERR[er]&&er!=="network") asrOff(ASR_ERR[er]); };
+  r.onend=()=>{ sessPlay(); if(got){ const sc=Math.round(matchScore(toks("Hello, I'm Lily."),toks(got)).score*100); out.textContent=`听到：${got}　准确率 ${sc}%　✓ 语音识别能用`; } };
+  try{ r.start(); }catch(e){ out.textContent="启动失败："+e.message; } }; }
+function vGuide(){
+  $("#main").innerHTML = asrTestCard() + `<div class="card"><h2 style="margin-top:0">90 天怎么用</h2>
+  <div class="tip" style="font-size:15px">每天两次打卡：<b>早餐磨耳朵 40 分钟</b>（自动播放，满 40 分钟自动打卡）和<b>晚上训练 15–20 分钟</b>（跟读、角色扮演、句型练习、小测，做完全部步骤就打卡）。两个孩子各用一台 iPad，记录分别保存在各自的 iPad 上。</div>
+  <table class="t" style="margin-top:12px"><tr><th>阶段</th><th>天数</th><th>故事</th><th>难度</th></tr>
+  <tr><td><span class="chip l1">第一阶段</span></td><td>Day 1–30</td><td>第 1–15 集</td><td>小学 3–4 年级：问候、家庭、颜色、食物、动物、数字、运动、时间、学科、天气……</td></tr>
+  <tr><td><span class="chip l2">第二阶段</span></td><td>Day 31–60</td><td>第 16–30 集</td><td>小学 5–6 年级：there be、爱好、职业、频率副词、过去时、be going to、should……</td></tr>
+  <tr><td><span class="chip l3">第三阶段</span></td><td>Day 61–90</td><td>第 31–45 集</td><td>初一–初二：自我介绍、运动、校园、作息、节日、购物、梦想之家、过去进行时、野生动物、自然灾害……</td></tr></table>
+  <h3>每集听两天</h3><table class="t"><tr><th></th><th>☀️ 早餐磨耳朵 40 分钟</th><th>🌙 晚上训练 15–20 分钟</th></tr>
+  <tr><td>单数日<br>（新故事）</td><td rowspan="2">早餐时间纯听，不用操作：点一下开始，自动循环播放今天的单词（带图）、动画故事（带中英字幕）、句型，以及前两集的故事和单词，满 40 分钟自动打卡</td><td>今日新词 → 字幕精听 → 逐句跟读 → 角色扮演 → 句型跟读 → 听力小测</td></tr>
+  <tr><td>双数日<br>（复习强化）</td><td>听音选词 → 看图听故事 → 逐句跟读 → 角色扮演 → 句型跟读 → 听力小测</td></tr></table>
+  <div class="tip" style="font-size:14px;margin-top:6px">早晨自动播放时会尽量保持屏幕常亮；如果 iPad 还是会自动锁屏，可以在「设置 → 显示与亮度 → 自动锁定」里临时调长。</div>
+  <h3>给家长</h3><div class="tip" style="font-size:15px">· 第二、三阶段的内容会明显超过二年级水平，目标是<b>听懂大意、敢跟读</b>，不要求会写。字幕精听时下方有中文场景提示。<br>· 跟读和角色扮演时请孩子大声说出来，比单纯听效果好很多。<br>· 故事和配音均为原创/AI 合成，话题和句式参照江苏译林版小学英语和牛津初中英语教材及课标词汇，不是教材原文。<br>· 音效来自 Wikimedia Commons：多数为公有领域/CC0；以下按 CC BY / BY-SA 使用并署名——儿童笑声 morgantj (CC BY 3.0)、观众笑声 lonemonk (CC BY 3.0)、狗叫 Amada44 (CC BY-SA 3.0)、闹钟 Mathieu Kappler (CC BY-SA 4.0)、落水声 Gravity Sound (CC BY 4.0)；“叮”“咚”“哔”等提示音为程序合成。<br>· 「日历」里可以点任意一天补卡或重听；「故事库」可以自由点播任意一集。</div></div>
+  <div class="card"><h3 style="margin-top:0">💾 进度备份与恢复</h3>
+  <div class="tip" style="font-size:15px">打卡记录保存在这台 iPad 的浏览器里。如果从文件重新打开后发现记录没了，可以用备份码恢复。建议每周点一次「生成备份码」，复制后发到微信或备忘录里保存。</div>
+  <div class="row" style="margin-top:12px"><button class="btn teal" id="bk">生成备份码并复制</button><span class="tip" id="bkmsg"></span></div>
+  <textarea id="bkt" style="width:100%;height:90px;margin-top:10px;font-size:14px;border-radius:14px;border:1.5px solid #f0e4d4;padding:10px;-webkit-user-select:text;user-select:text" placeholder="恢复时：把之前保存的备份码粘贴到这里，再点「恢复」"></textarea>
+  <div class="row" style="margin-top:10px"><button class="btn ghost" id="rs">恢复进度</button><span class="tip" id="rsmsg"></span></div></div>`;
+  $("#bk").onclick = ()=>{ const code = "LB1:" + btoa(unescape(encodeURIComponent(JSON.stringify(ST)))); $("#bkt").value = code; try{ navigator.clipboard.writeText(code).then(()=>tx("#bkmsg","✓ 已复制，粘贴到微信或备忘录保存"), ()=>tx("#bkmsg","请手动全选下面的文字复制")); }catch(e){ tx("#bkmsg","请手动全选下面的文字复制"); } };
+  $("#rs").onclick = ()=>{ try{ const v=$("#bkt").value.trim(); if(!v.startsWith("LB1:")) throw 0; const o=JSON.parse(decodeURIComponent(escape(atob(v.slice(4))))); if(!o.rec) throw 0; ST=o; save(ST); tx("#rsmsg","✓ 已恢复：当前 Day "+ST.cur+"，已打卡 "+doneCount()+" 次"); hstat(); }catch(e){ tx("#rsmsg","备份码不正确，请检查是否复制完整"); } };
+  let dg=[]; try{ dg=JSON.parse(localStorage.getItem("lb_diag")||"[]"); }catch(x){}
+  if (dg.length) $("#main").insertAdjacentHTML("beforeend", `<div class="card"><b>诊断信息</b><div class="tip">动画出问题时会记在这里，截图发给帮你做这个网页的人就行。</div><pre style="white-space:pre-wrap;font-size:12px;color:#888">${esc(dg.join("\n"))}</pre><button class="btn ghost" onclick="localStorage.removeItem('lb_diag');go('guide')">清空</button></div>`);
+  bindAsrTest();
+}
+
+// ---------- 打卡流程 ----------
+function startSes(d, kind){
+  const r = rec(d);
+  SES = {d, kind, steps:plan(d,kind), i:0, t:r[kind]||0, done:{}, active:false, fin:false};
+  renderSes();
+}
+function renderSes(){
+  STAR_N = 0;
+  stopAudio(); curScene=null;
+  const I = dayInfo(SES.d), e = I.ep, m = SES.kind==="m";
+  $("#main").innerHTML = `<div class="sbar ${m?'':'e'}"><div class="row" style="justify-content:space-between;flex-wrap:nowrap;gap:16px">
+      <div class="steps" style="margin:0;flex-wrap:nowrap;overflow-x:auto">${SES.steps.map((s,i)=>`<button class="step ${i===SES.i?'on':''} ${SES.done[i]?'done':''}" data-i="${i}">${i+1} ${STEP_NAMES[s]}</button>`).join("")}</div>
+      <div class="row" style="flex-wrap:nowrap"><div class="stimer">${m?"☀️":"🌙"} Day ${SES.d} <b id="ptime"></b></div><button class="btn ghost" id="next" style="white-space:nowrap">下一步 →</button></div></div>
+    <div class="prog" style="margin-top:10px"><i id="pbar"></i></div></div>
+    <div id="body"></div>`;
+  drawBar();
+  document.querySelectorAll(".step").forEach(b=>b.onclick=()=>{ SES.i=+b.dataset.i; SES.active=false; renderSes(); });
+  $("#next").onclick = ()=>nextStep();
+  const s = SES.steps[SES.i]; const body = $("#body");
+  const done = ()=>{ SES.done[SES.i]=true; SES.active=false; const b=document.querySelector(`.step[data-i="${SES.i}"]`); if(b) b.classList.add("done"); const n=$("#next"); if(n){ n.className="btn"; n.textContent = SES.i<SES.steps.length-1 ? "完成！下一步 →" : "完成"; } drawBar(); };
+  if (SES.steps[SES.i]==="loop" || SES.steps[SES.i]==="show") $("#next").style.display="none";
+  ({show:stepShow, words:stepWords, blind:stepBlind, text:stepText, echo:stepEcho, pats:stepPats, gram:stepGram, quiz:stepQuiz, role:stepRole, game:stepGame, loop:stepLoop})[s](body, e, done);
+}
+function nextStep(){ if (SES.i < SES.steps.length-1){ SES.i++; SES.active=false; renderSes(); } }
+
+// 1. 今日新词
+function stepWords(body, e, done){
+  body.innerHTML = `<div class="card"><div class="row" style="justify-content:space-between"><b>今日新词 <span class="chip">${e.words.length} 个</span></b><span class="tip">第一轮：听一个词、读一个词，马上打分；第二轮：快速再跟一遍。</span></div>
+    <div class="wgrid seven" style="margin-top:14px">${e.words.map(([w,c,em],k)=>`<button class="wc" data-k="${k}"><span class="e">${em}</span><span class="en">${esc(w)}</span><span class="cn">${c}</span></button>`).join("")}</div>
+    <div class="ctrl" style="margin-top:14px"><button class="btn" id="go">▶ 开始跟读</button><button class="btn ghost" id="stop">⏹ 停止</button></div><div class="center yourturn" id="tm"></div><div class="turn" id="turn"></div><div class="center"><span class="starbox" id="starbox"></span></div></div>`;
+  let run = 0;
+  body.querySelectorAll(".wc").forEach(b=>b.onclick=async()=>{ run++; b.classList.add("hot"); await playKey(e.ep,"w"+b.dataset.k); b.classList.remove("hot"); });
+  $("#go").onclick = async ()=>{ const my=++run; micPrime(); if(TURN) TURN.abort();
+    for (let round=0; round<2; round++){ for (let k=0;k<e.words.length;k++){ if(my!==run||!body.isConnected) return;
+      const b=body.querySelector(`.wc[data-k="${k}"]`); b.classList.add("hot"); b.scrollIntoView({block:"nearest",behavior:"smooth"}); tx("#tm", round?"第二轮":""); $("#turn").innerHTML="";
+      await playKey(e.ep,"w"+k); if(my!==run||!body.isConnected) return;
+      SES.active=true;
+      if (round===0){ const en=b.querySelector(".en"); const r=await speakTurn(e.words[k][0], ()=>playKey(e.ep,"w"+k), {subEn:en, dur:K(e.ep,"w"+k)[1]}); en.textContent=e.words[k][0]; if(r.aborted||my!==run) { SES.active=false; return; } }
+      else { tx("#tm", "🗣 跟读！"); await sleep(K(e.ep,"w"+k)[1]*1300+900); }
+      SES.active=false; b.classList.remove("hot"); } }
+    tx("#tm", "🎉 太棒了！"); $("#turn").innerHTML=""; done(); };
+  $("#stop").onclick = ()=>{ run++; if(TURN) TURN.abort(); stopAudio(); SES.active=false; $("#turn").innerHTML=""; };
+}
+// 2/3. 故事
+function storyPlayer(body, e, blind, done, opts={}){
+  const L = storyLines(e);
+  const cast = [...new Set(L.map(l=>l.spk).filter(x=>x!=="N"))];
+  body.innerHTML = `<div class="split"><div class="lcol">` + stageHTML() + `<div class="sub ${blind?'blind':''}" id="sub"><div class="who"></div><div class="en">${blind?"只看图，猜猜发生了什么":"按 ▶ 开始"}</div><div class="cn"></div></div>
+    <div class="ctrl"><button class="btn" id="play">▶ 从头播放</button><button class="btn ghost" id="pause">⏸ 暂停</button><button class="btn ghost" id="resume">⏯ 继续</button>${blind?'<button class="btn ghost" id="peek">👀 字幕</button>':''}</div></div>
+    <div class="rcol">${blind ? `<h4>这一集的人物</h4><div class="roles">${cast.map(r=>`<button>${avatar(r)} ${NAMES[r]}</button>`).join("")}</div><p class="tip" style="padding:0 6px">第一遍不看字，只看图和听声音，猜猜故事讲了什么。听不懂的地方没关系，下一步会有字幕。</p>`
+      : `<h4>台词（点一句可以重听）</h4><div class="lines">${L.map((l,n)=>`<div class="ln" data-n="${n}"><span class="who">${NAMES[l.spk]}</span><span class="en">${esc(l.txt)}</span></div>`).join("")}</div>`}</div></div>`;
+  const box = $("#stage"); drawStage(box, e, 0, null);
+  let cl = -1;
+  const show = (n)=>{ const l=L[n]; drawStage(box, e, l.i, l.spk); tx("#sub .who", NAMES[l.spk]); tx("#sub .en", l.txt); tx("#sub .cn", blind?"":e.scenes[l.i].cn);
+    body.querySelectorAll(".ln").forEach(x=>{ const on=+x.dataset.n===n; x.classList.toggle("cur", on); if(on) x.scrollIntoView({block:"center",behavior:"smooth"}); }); };
+  const onT = ()=>{ if(!document.getElementById("sub")){ A.removeEventListener("timeupdate",onT); return; } const t=A.currentTime; let n=-1; for(let q=0;q<L.length;q++){ if(t>=L[q].start-0.05) n=q; else break; } if(n>=0 && n!==cl){ cl=n; show(n); } };
+  $("#play").onclick = async ()=>{ cl=-1; A.removeEventListener("timeupdate",onT); A.addEventListener("timeupdate",onT); const ok = await playRange(e.ep, K(e.ep,"title")[0], storyEnd(e)); A.removeEventListener("timeupdate",onT); if(ok){ tx("#sub .en", "🎉 听完啦！"); tx("#sub .who", ""); done(); } };
+  $("#pause").onclick = ()=>A.pause();
+  $("#resume").onclick = ()=>{ const p=A.play(); p&&p.catch&&p.catch(()=>{}); };
+  if (blind) $("#peek").onclick = ()=>$("#sub").classList.toggle("blind");
+  body.querySelectorAll(".ln").forEach(x=>x.onclick=()=>{ A.removeEventListener("timeupdate",onT); const n=+x.dataset.n; show(n); playRange(e.ep, L[n].start, L[n].start+L[n].dur); });
+}
+function stepBlind(body, e, done){ storyPlayer(body, e, true, done); }
+function stepText(body, e, done){ storyPlayer(body, e, false, done); }
+// 4. 逐句跟读 / 6. 角色扮演
+function lineRunner(body, e, done, role){
+  const L = storyLines(e);
+  const cnt = {}; L.forEach(l=>{ if(l.spk!=="N") cnt[l.spk]=(cnt[l.spk]||0)+1; });
+  const roles = Object.keys(cnt).sort((a,b)=>cnt[b]-cnt[a]);
+  let mine = new Set(role ? ((SES && SES.roles) ? SES.roles.filter(r=>roles.includes(r)) : []) : []); if (role && !mine.size) mine.add(roles[0]);
+  body.innerHTML = `<div class="split"><div class="lcol">` + stageHTML() + `<div class="sub" id="sub"><div class="who"></div><div class="en">${role?"选好角色，按 ▶ 开始":"按 ▶ 开始，每句听完大声跟读"}</div><div class="cn"></div></div>
+    <div class="ctrl"><button class="btn" id="go">▶ 开始${role?"表演":"跟读"}</button><button class="btn ghost" id="stop">⏹ 停止</button><span class="yourturn" id="tm" style="min-width:200px;align-self:center"></span><span class="starbox" id="starbox"></span></div>
+    <div class="turn" id="turn"></div></div>
+    <div class="rcol">` + (role ? `<h4>选角色（可以选两个）</h4><p class="tip" style="margin:0 6px 10px">点一下选中、再点一下取消。轮到选中的角色说话时声音会停下来，换你来说！两个孩子可以各演一个，旁白和其他角色由 iPad 来演。</p><div class="roles">${roles.map(r=>`<button data-r="${r}" class="${mine.has(r)?'on':''}">${avatar(r)} ${NAMES[r]} <small style="margin-left:auto;color:var(--mut)">${cnt[r]} 句</small></button>`).join("")}</div>`
+      : `<h4>逐句跟读</h4><div class="lines">${L.map((l,n)=>`<div class="ln" data-n="${n}"><span class="who">${NAMES[l.spk]}</span><span class="en">${esc(l.txt)}</span></div>`).join("")}</div>`) + `</div></div>`;
+  const box = $("#stage"); drawStage(box, e, 0, null);
+  let run = 0;
+  body.querySelectorAll(".roles button[data-r]").forEach(b=>b.onclick=()=>{ const r=b.dataset.r; if(mine.has(r)){ if(mine.size>1) mine.delete(r); } else mine.add(r); if(SES) SES.roles=[...mine]; b.classList.toggle("on", mine.has(r)); });
+  const scores=[];
+  $("#go").onclick = async ()=>{ const my=++run; scores.length=0; micPrime(); if(TURN) TURN.abort();
+    for (let n=0;n<L.length;n++){ if(my!==run||!body.isConnected) return; const l=L[n];
+      drawStage(box, e, l.i, l.spk); tx("#sub .who", NAMES[l.spk]); tx("#sub .en", l.txt); tx("#sub .cn", e.scenes[l.i].cn);
+      body.querySelectorAll(".ln").forEach(x=>{ const on=+x.dataset.n===n; x.classList.toggle("cur",on); if(on) x.scrollIntoView({block:"center",behavior:"smooth"}); });
+      if (role && mine.has(l.spk)){ tx("#tm", `⭐ 轮到 ${NAMES[l.spk]}！`); if(SES) SES.active=true;
+        stageMime(l);                                   // 画面里这个角色照常张嘴、做动作
+        const r = await speakTurn(l.txt, ()=>playRange(e.ep, l.start, l.start+l.dur), {dur:l.dur});
+        if(SES) SES.active=false; tx("#tm", ""); if(r.aborted||my!==run||!body.isConnected) return; if(r.score!=null) scores.push(r); continue; }
+      tx("#tm", ""); $("#turn").innerHTML="";
+      await playRange(e.ep, l.start, l.start+l.dur); if(my!==run||!body.isConnected) return;
+      if (!role){ if(SES) SES.active=true;
+        const r = await speakTurn(l.txt, ()=>playRange(e.ep, l.start, l.start+l.dur), {dur:l.dur});
+        if(SES) SES.active=false; tx("#tm", ""); if(r.aborted||my!==run||!body.isConnected) return; scores.push(r); } else await sleep(300);
+    }
+    tx("#tm", role ? "🎉 演出成功！换个角色再来一次吧" : "🎉 全部跟读完成！");
+    const sc=scores.filter(x=>x.mode==="asr"||x.mode==="mic");
+    $("#turn").innerHTML = sc.length ? `<span class="st">这一轮得了 ⭐ ${STAR_N} 颗　一次就过 ${sc.filter(x=>x.pass&&x.tries===1).length} / ${sc.length} 句</span>` : "";
+    done(); };
+  $("#stop").onclick = ()=>{ run++; if(TURN) TURN.abort(); stopAudio(); if(SES) SES.active=false; $("#turn").innerHTML=""; };
+}
+function stepEcho(body, e, done){ lineRunner(body, e, done, false); }
+function stepRole(body, e, done){ lineRunner(body, e, done, true); }
+// 5. 句型
+function stepPats(body, e, done){
+  body.innerHTML = `<div class="card"><b>今日句型</b> <span class="tip">第一轮：听一句、读一句，马上打分；后两轮快速跟读</span><div style="margin-top:12px">${e.pats.map(([p,c],k)=>`<div class="pat" data-k="${k}"><div class="en">${esc(p)}</div><div class="tip">${c}</div></div>`).join("")}</div>
+   <div class="ctrl"><button class="btn teal" id="go">▶ 开始</button><button class="btn ghost" id="stop">⏹ 停止</button></div><div class="center yourturn" id="tm"></div><div class="turn" id="turn"></div><div class="center"><span class="starbox" id="starbox"></span></div></div>`;
+  let run=0;
+  body.querySelectorAll(".pat").forEach(b=>b.onclick=()=>{ run++; playKey(e.ep,"p"+b.dataset.k); });
+  $("#go").onclick = async ()=>{ const my=++run; micPrime(); if(TURN) TURN.abort();
+    for(let r=0;r<3;r++) for(let k=0;k<e.pats.length;k++){ if(my!==run||!body.isConnected) return;
+      const b=body.querySelector(`.pat[data-k="${k}"]`); b.classList.add("hot"); tx("#tm", `第 ${r+1} 轮`); $("#turn").innerHTML="";
+      await playKey(e.ep,"p"+k); if(my!==run||!body.isConnected) return; SES.active=true;
+      if (r===0){ const en=b.querySelector(".en"); const res=await speakTurn(e.pats[k][0], ()=>playKey(e.ep,"p"+k), {subEn:en, dur:K(e.ep,"p"+k)[1]}); en.textContent=e.pats[k][0]; if(res.aborted||my!==run){ SES.active=false; return; } }
+      else { tx("#tm", "🗣 跟读！"); await sleep(K(e.ep,"p"+k)[1]*1300+1000); }
+      SES.active=false; b.classList.remove("hot"); }
+    tx("#tm", "🎉 完成！"); $("#turn").innerHTML=""; done(); };
+  $("#stop").onclick = ()=>{ run++; if(TURN) TURN.abort(); stopAudio(); SES.active=false; $("#turn").innerHTML=""; };
+}
+// 5. 句型练习：看懂 → 换着说 → 变一变 → 自己说
+const GRAM = __LB.GRAM;
+const GKEY = (ep, k) => ep + "-" + k;
+function gramOf(ep){ return (GRAM.p[ep] || []); }
+function playG(t){ const x=GRAM.a[t]; if(!x) return Promise.resolve(); return playRange(x[0], x[1], x[1]+x[2]); }
+function skelHTML(skel, blank){ return esc(skel).replace(/\[(.+?)\]/g, (m, s)=> blank ? `<span class="slot blank">？</span>` : `<span class="slot">${s}</span>`); }
+function gstore(){ return (ST.gram = ST.gram || {}); }
+function stepGram(body, e, done, opts){
+  opts = opts || {};
+  const k = opts.k!=null ? opts.k : (dayInfo(SES.d).part==="A" ? 0 : 1);
+  const g = gramOf(e.ep)[k]; if(!g){ done(); return; }
+  const parts = ["跟读原句","替换跟读","变一变","自己说"];
+  let P = 0, I = 0, run = 0; const scores = []; let tfOk = null;
+  body.innerHTML = `<div class="card gcard">
+    <div class="row" style="justify-content:space-between;align-items:center"><b>句型练习 <span class="chip">${gramOf(e.ep).length>1?`第 ${k+1} 个句型`:"本集句型"}</span></b>
+      <div class="gsteps">${parts.map((p,i)=>`<span data-p="${i}">${i+1} ${p}</span>`).join("")}</div><span class="starbox" id="starbox"></span></div>
+    <div class="gpat"><div class="gskel en">${skelHTML(g.skel)}</div>
+      <div class="gex"><button class="btn ghost sm" id="gex">🔊</button><span class="en">${esc(g.s)}</span><span class="tip">${esc(g.cn)}</span></div>
+      <div class="gtip">💡 ${esc(g.tip)}</div></div>
+    <div id="gw"></div></div>`;
+  $("#gex").onclick = ()=>playG(g.s);
+  const W = ()=>$("#gw");
+  const mark = ()=>body.querySelectorAll(".gsteps span").forEach((s,i)=>{ s.classList.toggle("on", i===P); s.classList.toggle("ok", i<P); });
+  const alive = my => my===run && body.isConnected;
+  // 1. 跟读原句：先听两遍，再跟读，过了才往下
+  async function part0(){ P=0; mark(); const my=++run;
+    W().innerHTML = `<div class="gw center"><div class="tip" style="font-size:18px">先听，再跟读这句。<b class="slot">黄色的部分</b>待会儿要换成别的。</div>
+      <div class="gsay en" id="gsay">${esc(g.s)}</div><div class="turn" id="turn"></div></div>`;
+    micPrime();
+    await playG(g.s); if(!alive(my)) return; await sleep(600); if(!alive(my)) return; await playG(g.s); if(!alive(my)) return;
+    const r = await speakTurn(g.s, ()=>playG(g.s), {subEn:$("#gsay"), dur:Math.max(1.5, g.s.split(" ").length*0.42)});
+    if(r.aborted || !alive(my)) return;
+    if(r.mode==="asr"||r.mode==="mic") scores.push(r.score);
+    part1();
+  }
+  // 2. 替换跟读：看图、听换了词的新句子，再跟读；新换上的词标黄
+  function part1(){ P=1; mark(); I=0;
+    const base = new Set(toks(g.s));
+    const go1 = async ()=>{
+      if (I>=g.swap.length) return part2();
+      const [em, cn, target] = g.swap[I++]; const my=++run;
+      const ws = target.split(/\s+/), isNew = i=>toks(ws[i]).some(t=>!base.has(t));
+      W().innerHTML = `<div class="gw center"><div class="tip">第 ${I} / ${g.swap.length} 句：换成——</div>
+        <div class="gpic"><span class="e">${em}</span><span>${esc(cn)}</span></div>
+        <div class="gsay en" id="gsay">${ws.map((w,i)=>`<span class="w ${isNew(i)?"nw":""}">${esc(w)}</span>`).join(" ")}</div><div class="turn" id="turn"><span class="tip">先听一遍</span></div></div>`;
+      await playG(target); if(!alive(my)) return; await sleep(300); if(!alive(my)) return;
+      const r = await speakTurn(target, ()=>playG(target), {subEn:$("#gsay"), mark:isNew, dur:Math.max(1.5, ws.length*0.42)});
+      if(r.aborted || !alive(my)) return;
+      if(r.mode==="asr"||r.mode==="mic") scores.push(r.score);
+      go1();
+    };
+    go1(); }
+  async function sayItem(target, top, hint, next){
+    const my=++run;
+    W().innerHTML = `<div class="gw center">${top}
+      <div class="gsay en" id="gsay" data-t="${esc(target)}">${hint}</div>
+      <div class="turn" id="turn"></div></div>`;
+    await sleep(300); if(!alive(my)) return;
+    const r = await speakTurn(target, ()=>playG(target), {subEn:$("#gsay"), hide:true, mask:hint, dur:Math.max(1.5, target.split(" ").length*0.42)});
+    if(r.aborted || !alive(my)) return;
+    if(r.score!=null && (r.mode==="asr"||r.mode==="mic")) scores.push(r.score);
+    const s=$("#gsay"); if(s && !s.querySelector(".w")) s.textContent = target;
+    W().querySelector(".turn").innerHTML = `<span class="tip">听一遍标准读法</span>`;
+    await playG(target); if(!alive(my)) return; await sleep(500); if(!alive(my)) return; next();
+  }
+  function part2(){ P=2; mark(); const my=++run;
+    const [ins, src, opts, ans] = g.tf; const order = shuffle(opts.map((o,i)=>i));
+    W().innerHTML = `<div class="gw center"><div class="tip" style="font-size:18px">${esc(ins)}</div>
+      <div class="gsrc en">${esc(src)}</div>
+      <div class="gopts">${order.map(i=>`<button class="gopt en" data-i="${i}">${esc(opts[i])}</button>`).join("")}</div>
+      <div id="gfb" class="gfb"></div></div>`;
+    let ansd=false;
+    W().querySelectorAll(".gopt").forEach(b=>b.onclick=async()=>{ if(ansd) return; ansd=true; const i=+b.dataset.i; tfOk = i===ans;
+      if (tfOk){ b.classList.add("ok"); tone(true); addStars(2); $("#gfb").innerHTML=`<b style="color:var(--ok)">✓ 对了！</b>`; }
+      else { b.classList.add("bad"); W().querySelector(`.gopt[data-i="${ans}"]`).classList.add("ok"); tone(false); $("#gfb").innerHTML=`<b style="color:var(--bad)">绿色的才对，听一遍</b>`; }
+      await playG(opts[ans]); if(!alive(my)) return;
+      $("#gfb").innerHTML += `<div class="ctrl"><button class="btn" id="gnext">下一步 →</button></div>`; $("#gnext").onclick=()=>{ run++; part3(); }; }); }
+  function part3(){ P=3; mark();
+    const [em, cn, target] = g.say;
+    sayItem(target, `<div class="tip">只看中文，用学过的句型说出整句话</div><div class="gpic"><span class="e">${em}</span><span>${esc(cn)}</span></div>
+      <div class="ctrl"><button class="btn ghost sm" id="ghint">💡 提示</button></div>`, `<span class="tip">（说完整句）</span>`, finish);
+    const h=$("#ghint"); if(h) h.onclick=()=>{ const s=$("#gsay"); if(s && !s.querySelector(".w")) s.innerHTML=skelHTML(g.skel, true); };
+  }
+  function finish(){ P=4; mark();
+    const avg = scores.length ? scores.reduce((a,b)=>a+b,0)/scores.length : null;
+    if (!opts.free){ const G=gstore(), key=GKEY(e.ep,k), old=G[key]||{};
+      G[key] = {d: old.d || SES.d, say: Math.max(old.say||0, avg||0), tf: tfOk, rv: old.rv||[], weak: avg!=null ? avg<0.8 : !!old.weak}; save(ST); }
+    W().innerHTML = `<div class="gw center"><div style="font-size:56px">${avg==null?"👏":avg>=0.9?"🏆":avg>=0.8?"🌟":"💪"}</div>
+      <div class="big">${avg==null?"练完了！":`这个句型说得 ${Math.round(avg*100)} 分`}</div>
+      <div class="tip">${avg!=null&&avg<0.8?"还不太熟，过几天的小测里会再考它":"之后的小测里还会再见到它"}；它也在「句型本」里，随时能再练。</div>
+      <div class="ctrl"><button class="btn ghost" id="gagain">再练一遍</button></div></div>`;
+    $("#gagain").onclick=()=>stepGram(body, e, ()=>{}, opts);
+    done();
+  }
+  part0();
+}
+// 句型题：小测里考这一集的句型，再加上到期该复习的旧句型（学过后第 2、5、10 天）
+const GRV = [2,5,10];
+function gramQuiz(e){
+  const G=gstore(), out=[];
+  gramOf(e.ep).forEach((g,k)=>{ if(G[GKEY(e.ep,k)]) out.push({g, key:GKEY(e.ep,k), cur:true}); });
+  // 到期：学过后第 2、5、10 天各考一次；考错过的（weak）之后每隔 3 天再考，直到答对
+  const due = Object.entries(G).filter(([key,v])=>!key.startsWith(e.ep+"-") && (GRV.some(iv=>SES.d>=v.d+iv && !(v.rv||[]).includes(iv)) || (v.weak && SES.d-(v.lr||v.d)>=3)))
+    .sort((a,b)=>(b[1].weak?1:0)-(a[1].weak?1:0) || a[1].d-b[1].d).slice(0,2);
+  due.forEach(([key,v])=>{ const [ep,k]=key.split("-").map(Number); const g=gramOf(ep)[k]; if(g) out.push({g, key, iv:GRV.filter(iv=>SES.d>=v.d+iv && !(v.rv||[]).includes(iv))}); });
+  return out;
+}
+function gramReviewed(q, ok){ const G=gstore(), v=G[q.key]; if(!v) return; if(q.iv) v.rv=[...new Set([...(v.rv||[]), ...q.iv])]; if(!q.cur) v.lr=SES?SES.d:v.lr; if(!ok) v.weak=true; else if(!q.cur) v.weak=false; save(ST); }
+// 句型本
+function vGram(){
+  const G=gstore(); const L=[];
+  EPS.forEach(e=>gramOf(e.ep).forEach((g,k)=>L.push({e,g,k,v:G[GKEY(e.ep,k)]})));
+  const learned=L.filter(x=>x.v).length, weak=L.filter(x=>x.v&&x.v.weak).length;
+  const stage = ep => ep<=15?1:ep<=30?2:3;
+  $("#main").innerHTML = `<div class="card"><b>句型本</b> <span class="tip">已学 ${learned} / ${L.length} 个句型${weak?`，${weak} 个还要多练（标红）`:""}。点句子听读音，点“练一练”再做一遍四步练习。</span></div>
+    ${[1,2,3].map(s=>`<h3 style="margin:18px 4px 8px">${["","第一阶段 · 小学 3–4 年级","第二阶段 · 小学 5–6 年级","第三阶段 · 初一–初二"][s]}</h3>
+    <div class="gbook">${L.filter(x=>stage(x.e.ep)===s).map(x=>`<div class="gb ${x.v?(x.v.weak?"weak":"ok"):""}">
+      <div class="gbh"><span class="chip">第 ${x.e.ep} 集</span><span class="gst">${x.v?(x.v.weak?"要多练":"★".repeat(x.v.say>=0.95?3:x.v.say>=0.8?2:1)):"还没学"}</span></div>
+      <div class="gskel en sm" data-t="${esc(x.g.s)}">${skelHTML(x.g.skel)}</div><div class="tip">${esc(x.g.tip)}</div>
+      <button class="btn ghost sm" data-ep="${x.e.ep}" data-k="${x.k}">练一练</button></div>`).join("")}</div>`).join("")}`;
+  document.querySelectorAll(".gb .gskel").forEach(b=>b.onclick=()=>playG(b.dataset.t));
+  document.querySelectorAll(".gb [data-ep]").forEach(b=>b.onclick=()=>{ const e=EPS[+b.dataset.ep-1];
+    $("#main").innerHTML=`<div class="row" style="margin-bottom:12px"><button class="btn ghost" id="back">← 句型本</button></div><div id="body"></div>`;
+    $("#back").onclick=()=>go("gram"); stepGram($("#body"), e, ()=>{}, {k:+b.dataset.k, free:true}); });
+}
+
+// 6. 小测
+function stepQuiz(body, e, done){
+  // 前 5 题考故事有没有听懂；后面是句型题：本集学过的句型 + 到期复习的旧句型
+  const GQ = SES ? gramQuiz(e) : [];
+  const Q = e.quiz.map((q,i)=>({t:"story", q, i})).concat(GQ.map(x=>({t:"gram", x})));
+  const N = Q.length;
+  const Z = {i:0, right:0, order:Q.map(o=>shuffle((o.t==="story"?o.q.opts:o.x.g.fill[1]).map((_,m)=>m)))};
+  const draw = ()=>{
+    if (Z.i>=N){ const all=Z.right===N; body.innerHTML = `<div class="card center"><div style="font-size:64px">${all?"🏆":Z.right>=N*0.6?"🌟":"💪"}</div><div class="big">${Z.right} / ${N}</div><div class="tip">${all?"全对！":"没关系，错的句型过几天还会再考"}</div><div class="ctrl"><button class="btn ghost" id="again">再做一次</button></div></div>`; const r=rec(SES.d); r.q=Math.max(r.q||0,Z.right); save(ST); done(); $("#again").onclick=()=>stepQuiz(body,e,()=>{}); return; }
+    const o=Q[Z.i];
+    if (o.t==="gram"){
+      const g=o.x.g, [stem, opts, ans, cn]=g.fill;
+      body.innerHTML = `<div class="card center"><div class="tip">第 ${Z.i+1} / ${N} 题 <span class="chip gq">${o.x.cur?"本集句型":"复习句型"}</span></div>
+        <div class="en" style="font-size:32px;margin-top:14px">${esc(stem).replace("___",'<span class="slot blank">＿＿</span>')}</div><div class="tip">${esc(cn)}</div>
+        <div class="gopts">${Z.order[Z.i].map(m=>`<button class="gopt en" data-m="${m}">${esc(opts[m])}</button>`).join("")}</div><div id="fb" style="min-height:40px;margin-top:10px;font-size:20px"></div></div>`;
+      let ansd=false;
+      body.querySelectorAll(".gopt").forEach(b=>b.onclick=async()=>{ if(ansd) return; ansd=true; const m=+b.dataset.m, ok=m===ans;
+        if(ok){ b.classList.add("ok"); Z.right++; tone(true); $("#fb").innerHTML='<b style="color:var(--ok)">✔ 答对了！</b>'; }
+        else { b.classList.add("bad"); body.querySelector(`.gopt[data-m="${ans}"]`).classList.add("ok"); tone(false); $("#fb").innerHTML=`<b style="color:var(--bad)">正确的是绿色的</b><div class="tip">💡 ${esc(g.tip)}</div>`; }
+        const sl=body.querySelector(".slot.blank"); if(sl){ sl.textContent=opts[ans]; sl.classList.remove("blank"); }
+        gramReviewed(o.x, ok); await sleep(ok?1300:3200); Z.i++; draw(); });
+      return;
+    }
+    const q=o.q, qi=o.i;
+    body.innerHTML = `<div class="card center"><div class="tip">第 ${Z.i+1} / ${N} 题</div><div class="ctrl"><button class="btn" id="hq">🔊 听问题</button></div>
+      <div class="en" style="font-size:28px;margin-top:6px">${esc(q.q)}</div><div class="tip">${q.cn}</div>
+      <div class="qopts">${Z.order[Z.i].map(m=>{ const op=q.opts[m], sp=op.indexOf(" "); return `<button class="qopt" data-m="${m}"><span class="e">${op.slice(0,sp)}</span><span class="en">${esc(op.slice(sp+1))}</span></button>`; }).join("")}</div><div id="fb" style="min-height:40px;margin-top:10px;font-size:20px"></div></div>`;
+    $("#hq").onclick = ()=>playKey(e.ep,"q"+qi);
+    playKey(e.ep,"q"+qi);
+    let ansd=false;
+    body.querySelectorAll(".qopt").forEach(b=>b.onclick=async()=>{ if(ansd) return; ansd=true; const m=+b.dataset.m;
+      if (m===q.a){ b.classList.add("ok"); Z.right++; $("#fb").innerHTML='<b style="color:var(--ok)">✔ 答对了！</b>'; }
+      else { b.classList.add("bad"); body.querySelector(`.qopt[data-m="${q.a}"]`).classList.add("ok"); $("#fb").innerHTML='<b style="color:var(--bad)">正确答案是绿色的那个</b>'; }
+      await playKey(e.ep,"a"+qi); await sleep(700); Z.i++; draw(); });
+  };
+  draw();
+}
+// 7. 听音选词
+function stepGame(body, e, done){
+  const pool = []; [e, EPS[e.ep-2]].filter(Boolean).forEach(x=>x.words.forEach((w,k)=>pool.push({ep:x.ep,k,w})));
+  const qs = shuffle(e.words.map((w,k)=>({ep:e.ep,k,w}))).slice(0,8);
+  let i=0, right=0;
+  const draw = ()=>{
+    if (i>=qs.length){ body.innerHTML = `<div class="card center"><div style="font-size:64px">${right>=7?"🏆":"🌟"}</div><div class="big">${right} / ${qs.length}</div><div class="ctrl"><button class="btn ghost" id="again">再玩一次</button></div></div>`; done(); $("#again").onclick=()=>stepGame(body,e,()=>{}); return; }
+    const q = qs[i]; const opts = shuffle([q, ...shuffle(pool.filter(p=>p.w[0]!==q.w[0])).slice(0,3)]);
+    body.innerHTML = `<div class="card center"><div class="tip">第 ${i+1} / ${qs.length} 个 · 听发音，选出正确的词</div><div class="ctrl"><button class="btn teal" id="hear">🔊 再听一遍</button></div>
+      <div class="qopts g4">${opts.map((o,n)=>`<button class="qopt" data-n="${n}"><span class="e">${o.w[2]}</span><span class="en">${esc(o.w[0])}</span><div class="tip">${o.w[1]}</div></button>`).join("")}</div></div>`;
+    const hear = ()=>playKey(q.ep,"w"+q.k); $("#hear").onclick=hear; hear();
+    let ans=false;
+    body.querySelectorAll(".qopt").forEach(b=>b.onclick=async()=>{ if(ans) return; ans=true; const o=opts[+b.dataset.n];
+      if (o===q){ b.classList.add("ok"); right++; } else { b.classList.add("bad"); body.querySelectorAll(".qopt")[opts.indexOf(q)].classList.add("ok"); }
+      await playKey(q.ep,"w"+q.k); await sleep(600); i++; draw(); });
+  };
+  draw();
+}
+// 0. 早餐磨耳朵：一点开始，全程自动，不需要互动
+function stepShow(body, e, done){
+  const prev = EPS[e.ep-2], prev2 = EPS[e.ep-3];
+  const items = [{type:"words", e}, {type:"story", e}, {type:"pats", e}];
+  if (prev) items.push({type:"story", e:prev});
+  items.push({type:"story", e});
+  if (prev) items.push({type:"words", e:prev});
+  if (prev2) items.push({type:"story", e:prev2});
+  items.push({type:"pats", e}); if (prev) items.push({type:"pats", e:prev});
+  const label = it => it.type==="story" ? `故事《${it.e.title}》` : it.type==="words" ? `第 ${it.e.ep} 集单词` : `第 ${it.e.ep} 集句型`;
+  body.innerHTML = `<div class="show">` + stageHTML() + `<div class="sub" id="sub"><div class="who"></div><div class="en">吃早饭的时候听，不用操作，点一下就开始 🍳</div><div class="cn">会自动循环播放到满 40 分钟，然后自动打卡</div></div>
+    <div class="ctrl" id="sc1"><button class="btn bigplay" id="go">▶ 开始播放</button></div>
+    <div class="now" style="margin-top:4px"><span>正在播放：<b id="nowp">—</b></span><span id="sc2" style="display:none"><button class="btn ghost" id="pause">⏸ 暂停</button> <button class="btn ghost" id="resume">▶ 继续</button></span><span>接下来：<span id="nextp">${label(items[0])}</span></span></div></div>`;
+  const box = $("#stage"); drawStage(box, e, 0, null);
+  let run=0, onT=null, wl=null, paused=false;
+  const hold = async()=>{ while(paused && body.isConnected) await sleep(300); };
+  const lock = async()=>{ try{ if(navigator.wakeLock && !wl){ wl = await navigator.wakeLock.request("screen"); wl.addEventListener("release",()=>{ wl=null; }); } }catch(err){} };
+  document.addEventListener("visibilitychange", ()=>{ if(document.visibilityState==="visible" && body.isConnected && run) lock(); });
+  const detach=()=>{ if(onT){ A.removeEventListener("timeupdate",onT); onT=null; } };
+  const card = (html, cls)=>{ let c=box.querySelector(".wcard"); if(!c){ c=document.createElement("div"); box.appendChild(c); } c.className="wcard "+(cls||""); c.innerHTML=html; requestAnimationFrame(()=>c.classList.add("on")); };
+  const uncard = ()=>{ const c=box.querySelector(".wcard"); if(c){ c.classList.remove("on"); setTimeout(()=>c.remove(),350); } };
+  const alive = my => my===run && document.getElementById("sub");
+  const playItem = async (n, my)=>{
+    if (!alive(my)) return;
+    detach(); const it = items[n % items.length];
+    tx("#nowp", label(it)); tx("#nextp", label(items[(n+1) % items.length]));
+    let ok = true;
+    if (it.type==="story"){
+      uncard(); const L = storyLines(it.e); let cl=-1;
+      drawStage(box, it.e, 0, null); tx("#sub .who", ""); tx("#sub .en", it.e.title); tx("#sub .cn", it.e.cn||"");
+      onT = ()=>{ if(!document.getElementById("sub")){ detach(); return; } const t=A.currentTime; let k=-1; for(let q=0;q<L.length;q++){ if(t>=L[q].start-0.05) k=q; else break; } if(k>=0&&k!==cl){ cl=k; drawStage(box,it.e,L[k].i,L[k].spk); tx("#sub .who", NAMES[L[k].spk]); tx("#sub .en", L[k].txt); tx("#sub .cn", it.e.scenes[L[k].i].cn); } };
+      A.addEventListener("timeupdate", onT);
+      ok = await playRange(it.e.ep, K(it.e.ep,"title")[0], storyEnd(it.e));
+    } else {
+      const x = it.e, isW = it.type==="words";
+      const list = isW ? x.words.map((w,k)=>["w"+k, w[0], w[1], w[2]]) : x.pats.map((p,k)=>["p"+k, p[0], p[1], "💬"]);
+      drawStage(box, x, 0, null);
+      for (let q=0; q<list.length; q++){ const [k,en,cn,em]=list[q]; await hold(); if(!alive(my)) return;
+        card(`<span class="k">${isW?"单词":"句型"} ${q+1} / ${list.length}</span><div class="e pop">${em}</div><div class="w pop">${esc(en)}</div><div class="c">${cn}</div>`, isW?"":"pat");
+        tx("#sub .who", isW?"单词":"句型"); tx("#sub .en", en); tx("#sub .cn", cn);
+        ok = await playKey(x.ep, k); if(!ok || !alive(my)) return; await sleep(700); await hold();
+        ok = await playKey(x.ep, k); if(!ok || !alive(my)) return; await sleep(900); }
+      uncard();
+    }
+    detach();
+    if (!ok || !alive(my)) return;
+    if (SES && SES.t>=tgt() && !SES.fin){ done(); finish(); return; }
+    await sleep(1500); await hold(); playItem(n+1, my);
+  };
+  $("#go").onclick = ()=>{ run++; lock(); paused=false; SES.active=true; $("#sc1").style.display="none"; $("#sc2").style.display=""; playItem(0, run); };
+  $("#pause").onclick = ()=>{ paused=true; SES.active=false; A.pause(); };
+  $("#resume").onclick = ()=>{ paused=false; SES.active=true; if(segTimer){ const p=A.play(); p&&p.catch&&p.catch(()=>{}); } };
+}
+// 8. 磨耳朵
+function stepLoop(body, e, done){
+  const m = SES.kind==="m";
+  const eps = m ? [e, EPS[e.ep-2], EPS[e.ep]].filter(Boolean) : EPS.slice(Math.max(0,e.ep-4), e.ep).reverse();
+  const items = [];
+  eps.forEach((x,n)=>{ items.push({type:"story", e:x, name:(m&&x.ep>e.ep?"下一集预告 ":"")+`故事《${x.title}》`}); if (n===0 || (m && x.ep<=e.ep)) items.push({type:"words", e:x, name:`第 ${x.ep} 集单词和句型`}); });
+  body.innerHTML = `<div class="split"><div class="lcol">` + stageHTML() + `<div class="sub" id="sub"><div class="who"></div><div class="en">按 ▶ 开始连播</div><div class="cn"></div></div>
+    <div class="ctrl"><button class="btn ${m?'':'night'}" id="go">▶ 开始连播</button><button class="btn ghost" id="pause">⏸ 暂停</button><button class="btn ghost" id="resume">⏯ 继续</button><button class="btn ghost" id="skip">⏭ 下一个</button></div></div>
+    <div class="rcol"><h4>磨耳朵播放列表（循环）</h4><p class="tip" style="margin:0 6px 10px">${m ? "今天和上一集的故事、单词和句型，再加下一集预告，循环播放到满 40 分钟。" : "这一周的故事连播，循环到满 30 分钟。可以边画画、边整理玩具边听。"}</p>${items.map((it,n)=>`<div class="ln" data-n="${n}"><span class="who">${n+1}</span><span>${esc(it.name)}</span></div>`).join("")}</div></div>`;
+  const box = $("#stage"); drawStage(box, e, 0, null);
+  let run=0, cur=0, onT=null;
+  const detach=()=>{ if(onT){ A.removeEventListener("timeupdate",onT); onT=null; } };
+  const playItem = async (n, my)=>{
+    if (my!==run || !document.getElementById("sub")) return;
+    detach(); cur=n; const it = items[n % items.length];
+    body.querySelectorAll(".ln").forEach(x=>x.classList.toggle("cur", +x.dataset.n===n%items.length));
+    let ok;
+    if (it.type==="story"){
+      const L = storyLines(it.e); let cl=-1;
+      drawStage(box, it.e, 0, null); tx("#sub .who", ""); tx("#sub .en", it.e.title); tx("#sub .cn", "");
+      onT = ()=>{ if(!document.getElementById("sub")){ detach(); return; } const t=A.currentTime; let k=-1; for(let q=0;q<L.length;q++){ if(t>=L[q].start-0.05) k=q; else break; } if(k>=0&&k!==cl){ cl=k; drawStage(box,it.e,L[k].i,L[k].spk); tx("#sub .who", NAMES[L[k].spk]); tx("#sub .en", L[k].txt); tx("#sub .cn", it.e.scenes[L[k].i].cn); } };
+      A.addEventListener("timeupdate", onT);
+      ok = await playRange(it.e.ep, K(it.e.ep,"title")[0], storyEnd(it.e));
+    } else {
+      const x = it.e, keys = [...x.words.map((w,k)=>["w"+k, w[0], w[2]+" "+w[1]]), ...x.pats.map((p,k)=>["p"+k, p[0], p[1]])];
+      ok = true;
+      for (const [k, en, cn] of keys){ if (my!==run||!body.isConnected) return; tx("#sub .who", "单词 · 句型"); tx("#sub .en", en); tx("#sub .cn", cn); ok = await playKey(x.ep, k); if(!ok) return; await sleep(500); }
+    }
+    detach();
+    if (!ok || my!==run) return;
+    if (SES && SES.t>=TARGET) { done(); drawBar(); }
+    await sleep(1200); playItem(n+1, my);
+  };
+  $("#go").onclick = ()=>{ run++; playItem(0, run); };
+  $("#pause").onclick = ()=>A.pause();
+  $("#resume").onclick = ()=>{ const p=A.play(); p&&p.catch&&p.catch(()=>{}); };
+  $("#skip").onclick = ()=>{ run++; stopAudio(); playItem(cur+1, run); };
+  body.querySelectorAll(".ln").forEach(x=>x.onclick=()=>{ run++; playItem(+x.dataset.n, run); });
+}
+
+try{ go("home"); }catch(err){ diag("home: "+(err&&err.message)); }
+</script>
+<script>window.addEventListener("load",function(){var s=document.createElement("script");s.src="../assets/stage.b3665bd246.js";s.onerror=function(){window.LBStageError&&LBStageError(new Error("stage.js 没有下载下来"))};document.head.appendChild(s);});</script>
+<script>
+window.__api = {
+  // 早晚各走各的：早上听下一个没听的；晚上练下一个没练的（不超过早上）；今天做完的那一天保持显示“完成”
+  pick(kind){ const t=ymdL(), K=kind==="m"?"md":"ed", DT=kind==="m"?"mdate":"edate";
+    const today=Object.entries(ST.rec).filter(([k,v])=>v&&v[K]&&v[DT]===t).map(([k])=>+k).sort((a,b)=>b-a)[0];
+    let next=1; while(next<TOTAL && ST.rec[next] && ST.rec[next][K]) next++;
+    return today || next; },
+  slot(kind){ const d=this.pick(kind), I=dayInfo(d), r=rec(d), e=I.ep, K=kind==="m"?"md":"ed";
+    return {day:d, ep:e.ep, title:e.title, cn:e.cn, done:!!r[K], t:r[kind]||0, steps:plan(d,kind).map(s=>STEP_NAMES[s])}; },
+  info(){ const M=this.slot("m"), E=this.slot("e"); const d=M.day, I=dayInfo(d), r=rec(d), e=I.ep; return {day:d, M, E, ep:e.ep, title:e.title, cn:e.cn, topic:e.topic,
+    part:I.part, lv:I.lv, lvName:I.lvName, m:M.t, e:E.t, md:M.done, ed:E.done, eday:E.day, streak:streak(), done:doneCount(),
+    eveSteps:E.steps,
+    rec:Object.fromEntries(Object.entries(ST.rec).map(([k,v])=>[k, (v&&v.md?1:0)+(v&&v.ed?2:0)]))}; },
+  get(){ return ST; }, set(o){ ST=o; save(ST); SES=null; go("home"); hstat(); },
+  start(kind, day){ stopAudio(); SES=null; const d=day||this.pick(kind); ST.cur=d; save(ST); startSes(d, kind); }, role(){ stopAudio(); SES=null; freePlay(dayInfo(ST.cur).ep.ep, "role"); },
+  view(v){ SES=null; stopAudio(); go(v); },
+  leave(){ stopAudio(); if(SES){ SES=null; } const o=document.getElementById("ov"); if(o) o.remove(); },
+  busy(){ return !!SES; }, current(){ return SES ? "ses" : VIEW; }
+};
+</script></body>
+</html>

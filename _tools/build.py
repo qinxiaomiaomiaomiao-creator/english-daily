@@ -4,10 +4,13 @@
 Usage:
     python3 _tools/build.py SRC_DIR [REPO_DIR]
 
-SRC_DIR   folder of the latest merged web version: index.html (the page that
-          carries both courses as base64 in <script id="src:ph"> / "src:lb")
-          plus audio/*.mp3.  This is the same folder that is published as the
-          claude.ai artifact 「心远和悠然的英语日课」.
+SRC_DIR   folder of the latest merged web version, the same folder that is
+          published as the claude.ai artifact 「心远和悠然的英语日课」:
+            index.html   outer page (今日 / 抄写默写), loads lb.html in an iframe
+            lb.html      听力营
+            assets/      big files with a content hash in the name
+                         (stage.<hash>.js, lbdata.<hash>.js, andika.<hash>.woff2)
+            audio/*.mp3
 REPO_DIR  checkout of github.com/qinxiaomiaomiaomiao-creator/english-daily
           (default: the folder above _tools/).
 
@@ -15,21 +18,22 @@ What it writes into REPO_DIR (nothing else is touched, .git is kept):
     index.html            chooser page (秦心远 / 秦悠然)
     .nojekyll
     audio/                replaced by SRC_DIR/audio
-    xinyuan/index.html    秦心远's copy
-    youran/index.html     秦悠然's copy
+    assets/               replaced by SRC_DIR/assets (shared by both children)
+    xinyuan/index.html, xinyuan/lb.html    秦心远's copy
+    youran/index.html,  youran/lb.html     秦悠然's copy
 
 Per-child changes:
   * every localStorage key is prefixed "xinyuan/" or "youran/" (a shim is
-    injected first in <head> of the outer page and of both course pages),
-    because both copies share one origin on GitHub Pages;
-  * audio is loaded from ../audio/ (shared by both copies);
+    injected first in <head> of index.html and lb.html), because both copies
+    share one origin on GitHub Pages;
+  * audio is loaded from ../audio/ and assets from ../assets/ (shared);
   * the child's name in <title>, a name chip in the header, and the 今日
     greeting; home-screen icon name 心远英语 / 悠然英语.
 
-If the source page changes the strings this script edits, sub1() stops with
-an AssertionError naming the string: update the pattern here, never skip it.
+If the source page changes the strings this script edits, sub1()/subn() stop
+with an AssertionError naming the string: update the pattern here, never skip it.
 """
-import base64, os, re, shutil, sys
+import os, re, shutil, sys
 
 KIDS = [
     ("xinyuan", "秦心远", "心远英语"),
@@ -62,19 +66,29 @@ def inject_head(html, ns):
     return html[:i] + shim(ns) + html[i:]
 
 
-def build_kid(src, slug, name, short):
-    s = src
-    for k in ("ph", "lb"):
-        m = re.search(r'(<script type="text/plain" id="src:%s">)(.*?)(</script>)' % k, s, re.S)
-        assert m, "course block src:%s not found" % k
-        inner = base64.b64decode(m.group(2).strip()).decode("utf-8")
-        inner = inject_head(inner, slug)
-        inner = sub1(inner, 'const AUDIO_BASE = "audio/";', 'const AUDIO_BASE = "../audio/";')
-        enc = base64.b64encode(inner.encode("utf-8")).decode("ascii")
-        s = s[: m.start(2)] + enc + s[m.end(2):]
+def subn(s, old, new):
+    n = s.count(old)
+    assert n >= 1, "expected at least one %r" % old
+    return s.replace(old, new)
 
-    s = inject_head(s, slug)
+
+def shared_paths(s):
+    # assets/ sits next to audio/ at the repo root, one level above each child
+    s = subn(s, '"assets/', '"../assets/')
+    return s.replace("url(assets/", "url(../assets/")
+
+
+def build_lb(src, slug):
+    s = inject_head(src, slug)
+    s = sub1(s, 'const AUDIO_BASE = "audio/";', 'const AUDIO_BASE = "../audio/";')
+    return shared_paths(s)
+
+
+def build_kid(src, slug, name, short):
+    s = inject_head(src, slug)
+    s = sub1(s, 'f.src=k+".html";', 'f.src=k+".html";')   # 听力营 lb.html is the child's own copy, same folder
     s = sub1(s, 'return "audio/"+key;', 'return "../audio/"+key;')
+    s = s.replace("url(assets/", "url(../assets/")
     s = re.sub(r"<title>[^<]*</title>",
                '<title>%s的英语日课</title>\n<meta name="apple-mobile-web-app-title" content="%s">' % (name, short),
                s, count=1)
@@ -111,13 +125,16 @@ def main():
         sys.exit(__doc__)
     src_dir = sys.argv[1]
     repo = sys.argv[2] if len(sys.argv) > 2 else os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    src = open(os.path.join(src_dir, "index.html"), encoding="utf-8").read()
+    read = lambda n: open(os.path.join(src_dir, n), encoding="utf-8").read()
+    src, lb = read("index.html"), read("lb.html")
     for slug, name, short in KIDS:
         d = os.path.join(repo, slug)
         os.makedirs(d, exist_ok=True)
         open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(build_kid(src, slug, name, short))
-    a_src, a_dst = os.path.join(src_dir, "audio"), os.path.join(repo, "audio")
-    if os.path.isdir(a_src):
+        open(os.path.join(d, "lb.html"), "w", encoding="utf-8").write(build_lb(lb, slug))
+    for sub in ("audio", "assets"):
+        a_src, a_dst = os.path.join(src_dir, sub), os.path.join(repo, sub)
+        assert os.path.isdir(a_src), "missing %s/ in SRC_DIR" % sub
         shutil.rmtree(a_dst, ignore_errors=True)
         shutil.copytree(a_src, a_dst)
     open(os.path.join(repo, "index.html"), "w", encoding="utf-8").write(CHOOSER)

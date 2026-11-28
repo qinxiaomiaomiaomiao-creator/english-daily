@@ -17,18 +17,21 @@
 1. 连接仓库（每个会话第一次时）：
    `add_repo(owner="qinxiaomiaomiaomiao-creator", repo="english-daily", access="push")`，
    然后按返回的提示 clone（仓库约 40 MB，大部分是音频）。
-2. 准备好最新的合并网页版文件夹 `SRC_DIR`：里面有 `index.html`（就是发布为
-   claude.ai 网页「心远和悠然的英语日课」的那个页面）和 `audio/*.mp3`。
+2. 准备好最新的合并网页版文件夹 `SRC_DIR`（就是发布为 claude.ai 网页
+   「心远和悠然的英语日课」的那个文件夹）：`index.html`（外壳：今日、抄写默写）、
+   `lb.html`（听力营，外壳用 iframe 加载）、`assets/`（带哈希文件名的大文件：
+   动画引擎 stage.*.js、听力营数据 lbdata.*.js、字体）和 `audio/*.mp3`。
 3. 生成两份页面：
    ```bash
    python3 _tools/build.py SRC_DIR .
    ```
-   脚本会改写 `xinyuan/`、`youran/`、`audio/`、`index.html`，其余不动。
+   脚本会改写 `xinyuan/`（index.html、lb.html）、`youran/`、`audio/`、`assets/`、
+   `index.html`，其余不动。
    如果报 `expected exactly one ...`，说明源页面里被替换的那段代码变了：
    改 `_tools/build.py` 里对应的匹配串，不要跳过。
 4. 检查（至少做到）：本地起一个 `python3 -m http.server`，按
    `/english-daily/xinyuan/` 的目录结构访问，两个页面都能显示名字和今日页，
-   一个孩子页面写入的进度另一个看不到，`../audio/*.mp3` 返回 200。
+   一个孩子页面写入的进度另一个看不到，`../audio/*.mp3`、`../assets/*` 返回 200。
 5. 提交并推送：
    ```bash
    git add -A && git commit -m "<改了什么>" && git -c push.negotiate=true push origin main
@@ -46,3 +49,8 @@
 - **地址不变**：不要改仓库名或 `xinyuan/`、`youran/` 目录名，孩子 iPad 主屏幕
   上的图标指向这些地址。
 - 单个文件不超过 100 MB（GitHub 上限），音频保持放在 `audio/` 里单独的 mp3 文件。
+- **不要再把子页面或大数据 base64 塞进一个 HTML**：那样每次打开都要整份下载、
+  解码、解析，iPad 上打开很慢。大文件放 `assets/`，文件名带内容哈希，内容变了
+  文件名就变，浏览器可以放心缓存。
+- 自然拼读模块已去掉（2026-11-28），但 `phonics_v1` 记录保留在孩子 iPad 上，
+  备份码里也带着；`audio/a8_*.mp3` 仍被抄写默写用来读单词，不要删。
